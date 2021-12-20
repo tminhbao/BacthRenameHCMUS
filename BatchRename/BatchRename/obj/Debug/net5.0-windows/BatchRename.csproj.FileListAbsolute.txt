@@ -21,3 +21,5 @@ D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\ref\
 D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\BatchRename.pdb
 D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\BatchRename.genruntimeconfig.cache
 D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\App.baml
+D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\BatchRename.csproj.ResolveComReference.cache
+D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\BatchRename.csproj.Fody.CopyLocal.cache

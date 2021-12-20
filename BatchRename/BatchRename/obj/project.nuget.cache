@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "l+QD+Kvg/4SaY8nlEWfPFC76lznWWpRp1B7TTrSy+NAN+21Rt/yQmpWRkkmViHLwUBVjVnuGq/F84Ux118fV2w==",
+  "dgSpecHash": "qn6mkanGEU/4zHh43dLVdlNB0EpLHe4e6DoFyJ5lQtDIpeDtAoJQq2R1Qy52QkNyPBkOgeqMN9yuyMSZ6bL5Kg==",
   "success": true,
   "projectFilePath": "D:\\GITHUB\\BacthRenameHCMUS\\BatchRename\\BatchRename\\BatchRename.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ADmin\\.nuget\\packages\\fody\\6.5.1\\fody.6.5.1.nupkg.sha512",
+    "C:\\Users\\ADmin\\.nuget\\packages\\propertychanged.fody\\3.4.0\\propertychanged.fody.3.4.0.nupkg.sha512"
+  ],
   "logs": []
 }
