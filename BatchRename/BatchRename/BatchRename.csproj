@@ -10,9 +10,9 @@
     <None Remove="Images\add.png" />
     <None Remove="Images\clear.png" />
     <None Remove="Images\gobottom.png" />
-    <None Remove="Images\goleft.png" />
-    <None Remove="Images\goright.png" />
+    <None Remove="Images\godown.png" />
     <None Remove="Images\gotop.png" />
+    <None Remove="Images\goup.png" />
     <None Remove="Images\help.png" />
     <None Remove="Images\loadpreset.png" />
     <None Remove="Images\refresh.png" />
@@ -43,13 +43,13 @@
     <Resource Include="Images\gobottom.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\goleft.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\goright.png">
+    <Resource Include="Images\godown.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\gotop.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\goup.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\help.png">

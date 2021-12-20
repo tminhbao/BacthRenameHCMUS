@@ -255,10 +255,10 @@
                         <Image Name="IconFirst" Source="/Images/gotop.png" Height="20" Width="20"></Image>
                     </Button>
                     <Button x:Name="bnt_Top" >
-                        <Image Name="IconTop" Source="/Images/goleft.png" Height="20" Width="20"></Image> 
+                        <Image Name="IconTop" Source="/Images/goup.png" Height="16" Width="16"></Image> 
                     </Button>
                     <Button x:Name="bnt_Down" >
-                        <Image Name="IconDown" Source="/Images/goright.png" Height="20" Width="20"></Image>
+                        <Image Name="IconDown" Source="/Images/godown.png" Height="14" Width="14"></Image>
                     </Button>
                     <Button x:Name="bnt_Last" >
                         <Image Name="IconLast" Source="/Images/gobottom.png" Height="20" Width="20"></Image>
