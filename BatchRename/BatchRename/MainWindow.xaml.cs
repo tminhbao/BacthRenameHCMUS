@@ -27,37 +27,46 @@ namespace BatchRename
     {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
-        class Filename : INotifyPropertyChanged
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            public int id { get; set; }
+            // Load file lên UI
+            List<File> _files = new List<File>();
+            _files.Add(new File() { filePath = "path đây nè", oldName = "ABC", newName = "BCD" });
+            _files.Add(new File() { filePath = "path đây nè 11", oldName = "ABC  11", newName = "BCD 11" });
+
+        }
+
+        public class File : INotifyPropertyChanged
+        {
             public string oldName { get; set; }
             public string filePath { get; set; }
             public string newName { get; set; }
             public string err { get; set; }
+
             public event PropertyChangedEventHandler PropertyChanged;
         }
 
-        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+    
+
+
+        List<Path> _paths = new List<Path>();
+        class Path
         {
-            FileTab.Items.Refresh();
-            FolderTab.Items.Refresh();
+            public string Name { get; set; }
         }
 
-
-        public string Path { get; set; }
         private void AddFileButtons_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = true;
-            if(openFileDialog.ShowDialog()==true)
+            if (openFileDialog.ShowDialog() == true)
             {
-                Path = openFileDialog.FileName;
-                MessageBox.Show(Path);
+                _paths.Add(new Path() { Name = openFileDialog.FileName });
             }
         }
-        
+
     }
 }
