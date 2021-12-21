@@ -203,22 +203,20 @@
                                 <!--Nhóm button di chuyển tập tin-->
                                 <Button x:Name="bnt_FirstFile" Click="MoveFirstFileButton_Click">
                                     <Image Name="IconFirstFile" 
-                                       Source="/Images/gotop.png" Height="20" Width="20"></Image>
-
+                                       Source="/Images/gotop.png" Height="20" Width="20"/>
                                 </Button>
                                 <Button  x:Name="bnt_UpFile" Click="MoveUpFileButton_Click">
                                     <Image Name="IconTopFile"
-                                        Source="/Images/goup.png" Height="20" Width="20"></Image>
+                                        Source="/Images/goup.png" Height="20" Width="20"/>
                                 </Button>
                                 <Button  x:Name="bnt_DownFile" Click="MoveDownFileButton_Click" >
                                     <Image Name="IconDownFile"
-                                        Source="/Images/godown.png" Height="20" Width="20"></Image>
+                                        Source="/Images/godown.png" Height="20" Width="20"/>
                                 </Button>
                                 <Button  x:Name="bnt_LastFile" Click="MoveBottomFileButton_Click" >
                                     <Image Name="IconLastFile"
-                                        Source="/Images/gobottom.png" Height="20" Width="20"></Image>
+                                        Source="/Images/gobottom.png" Height="20" Width="20"/>
                                 </Button>
-
                             </ToolBar>
                         </ToolBarTray>
 
@@ -247,7 +245,7 @@
                                     <GridViewColumn Header="Path"  DisplayMemberBinding="{Binding Path}" Width="180"/>
                                     <GridViewColumn Header="Error" DisplayMemberBinding="{Binding Error}" Width="180"/>
                                 </GridView>
-
+                                
                             </ListView.View>
                         </ListView>
                     </StackPanel>
@@ -278,19 +276,19 @@
                                     </MenuItem>
                                 </Menu>
                                 <Separator/>
-                                <Button x:Name="bnt_FirstFolder" >
+                                <Button x:Name="bnt_FirstFolder" Click="MoveFirstFolderButton_Click">
                                     <Image Name="IconFirstFolder" 
                                        Source="/Images/gotop.png" Height="20" Width="20"></Image>
                                 </Button>
-                                <Button  x:Name="bnt_UpFolder" >
+                                <Button  x:Name="bnt_UpFolder" Click="MoveUpFolderButton_Click">
                                     <Image Name="IconTopFolder"
                                         Source="/Images/goup.png" Height="20" Width="20"></Image>
                                 </Button>
-                                <Button  x:Name="bnt_DownFolder" >
+                                <Button  x:Name="bnt_DownFolder" Click="MoveDownFolderButton_Click">
                                     <Image Name="IconDownFolder"
                                         Source="/Images/godown.png" Height="20" Width="20"></Image>
                                 </Button>
-                                <Button  x:Name="bnt_LastFolder" >
+                                <Button  x:Name="bnt_LastFolder" Click="MoveBottomFolderButton_Click">
                                     <Image Name="IconLastFolder"
                                         Source="/Images/gobottom.png" Height="20" Width="20"></Image>
                                 </Button>

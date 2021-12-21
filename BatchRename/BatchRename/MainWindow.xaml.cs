@@ -163,5 +163,55 @@ namespace BatchRename
             }
         }
 
+
+
+        // Di chuyển folder
+        private void MoveFirstFolderButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListFolderSelected.SelectedIndex > 0)
+            {
+                var item = (FolderSelected)ListFolderSelected.SelectedItem;
+                var index = ListFolderSelected.SelectedIndex;
+                ListFolderSelected.Items.RemoveAt(index);
+                ListFolderSelected.Items.Insert(0, item);
+                ListFolderSelected.SelectedItem = ListFolderSelected.Items[0];
+            }
+        }
+
+        private void MoveUpFolderButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListFolderSelected.SelectedIndex > 0)
+            {
+                var item = (FolderSelected)ListFolderSelected.SelectedItem;
+                var index = ListFolderSelected.SelectedIndex;
+                ListFolderSelected.Items.RemoveAt(index);
+                ListFolderSelected.Items.Insert(index - 1, item);
+                ListFolderSelected.SelectedItem = ListFolderSelected.Items[index - 1];
+            }
+        }
+
+        private void MoveDownFolderButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListFolderSelected.SelectedIndex >= 0 && ListFolderSelected.SelectedIndex < ListFolderSelected.Items.Count - 1)
+            {
+                var item = (FolderSelected)ListFolderSelected.SelectedItem;
+                var index = ListFolderSelected.SelectedIndex;
+                ListFolderSelected.Items.RemoveAt(index);
+                ListFolderSelected.Items.Insert(index + 1, item);
+                ListFolderSelected.SelectedItem = ListFolderSelected.Items[index + 1];
+            }
+        }
+
+        private void MoveBottomFolderButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListFolderSelected.SelectedIndex >= 0 && ListFolderSelected.SelectedIndex < ListFolderSelected.Items.Count)
+            {
+                var item = (FolderSelected)ListFolderSelected.SelectedItem;
+                var index = ListFolderSelected.SelectedIndex;
+                ListFolderSelected.Items.RemoveAt(index);
+                ListFolderSelected.Items.Insert(ListFolderSelected.Items.Count, item);
+                ListFolderSelected.SelectedItem = ListFolderSelected.Items[ListFolderSelected.Items.Count - 1];
+            }
+        }
     }
 }
