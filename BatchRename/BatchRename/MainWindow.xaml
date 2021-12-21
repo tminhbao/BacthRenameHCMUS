@@ -6,185 +6,6 @@
         xmlns:local="clr-namespace:BatchRename"
         mc:Ignorable="d"
         Title="My Rename" Height="500" Width="1000" Loaded="Window_Loaded">
-    <!--<Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Vertical">
-            <ToolBarTray>
-                <ToolBar>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Style="{StaticResource MyButton}" Height="28" Margin="0,0,8,0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="RefreshButton_Click">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <Image Source="/Images/refresh.png" Height="20" Width="20" RenderOptions.BitmapScalingMode="HighQuality"/>
-                                <TextBlock Text=" Refresh" FontSize="12"></TextBlock>
-                            </StackPanel>
-                        </Button>
-                        <Button Style="{StaticResource MyButton}" Height="28" Margin="0,0,8,0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <Image Source="/Images/help.png" Height="20" Width="20" RenderOptions.BitmapScalingMode="HighQuality"/>
-                                <TextBlock Text="Help" FontSize="12"></TextBlock>
-                            </StackPanel>
-                        </Button>
-                        <Button Style="{StaticResource MyButton}" Height="28" Margin="0,0,8,0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <Image Source="/Images/start.png" Height="20" Width="20" RenderOptions.BitmapScalingMode="HighQuality"/>
-                                <TextBlock Text="Start Batch" FontSize="12"></TextBlock>
-                            </StackPanel>
-                        </Button>
-
-                    </StackPanel>
-                </ToolBar>
-            </ToolBarTray>
-        </StackPanel>
-
-        <StackPanel Grid.Row="1">
-            <ToolBarTray>
-                <ToolBar>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Method: "/>
-                        <ComboBox Width="120" Name="actionCombobox" Height="22" Margin="0,0,8,0">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding name}"/>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                            <ComboBoxItem>Replace</ComboBoxItem>
-                            <ComboBoxItem>Prefix</ComboBoxItem>
-                            <ComboBoxItem>Suffix</ComboBoxItem>
-                            
-                        </ComboBox>
-                        <Button Style="{StaticResource MyButton}" Height="28" Margin="0,0,8,0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <Image Source="/Images/add.png" Height="20" Width="20" RenderOptions.BitmapScalingMode="HighQuality"/>
-                                <TextBlock Text="Add Method" FontSize="12"></TextBlock>
-                            </StackPanel>
-                        </Button>
-                        <Button Style="{StaticResource MyButton}" Height="28" Margin="0,0,8,0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <Image Source="/Images/clear.png" Height="20" Width="20" RenderOptions.BitmapScalingMode="HighQuality"/>
-                                <TextBlock Text="Clear" FontSize="12"></TextBlock>
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-                </ToolBar>
-            </ToolBarTray>
-            
-            
-            <ToolBarTray>
-                <ToolBar>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Style="{StaticResource MyButton}" Height="28" Margin="0,0,8,0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <Image Source="/Images/loadpreset.png" Height="20" Width="20" RenderOptions.BitmapScalingMode="HighQuality"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Style="{StaticResource MyButton}" Height="28" Margin="0,0,8,0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <Image Source="/Images/savepreset.png" Height="20" Width="20" RenderOptions.BitmapScalingMode="HighQuality"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Style="{StaticResource MyButton}" Name="ChoosePreset" Margin="5,0,5,0">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="Presets: "/>
-                                <ComboBox Name="PresetCombobox" Width="100" Margin="0 2 0 2 ">
-                                </ComboBox>
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-                </ToolBar>
-            </ToolBarTray>
-            
-           
-        </StackPanel>
-        
-        
-      
-        
-        <TabControl Grid.Row="1" Grid.Column="1">
-            <TabItem Header="Rename File">
-                <StackPanel Orientation="Vertical">
-                    <ToolBarTray>
-                        <ToolBar>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Style="{StaticResource MyButton}" x:Name="AddFileButtons" Margin="5 0 5 0" Click="AddFileButtons_Click">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Image Source="/Images/Add.png" Height="16" Width="16" RenderOptions.BitmapScalingMode="HighQuality" Margin="0 0 2 0"/>
-                                        <TextBlock Text="Add"/>
-                                    </StackPanel>
-                                </Button>
-                                <Button Style="{StaticResource MyButton}" Height="20">
-                                    <Image Source="/Images/gotop.png"/>
-                                </Button>
-                                <Button Style="{StaticResource MyButton}" Height="20">
-                                    <Image Source="/Images/goleft.png"/>
-                                </Button>
-                                <Button Style="{StaticResource MyButton}" Height="20">
-                                    <Image Source="/Images/goright.png"/>
-                                </Button>
-                                <Button Style="{StaticResource MyButton}" Height="20">
-                                    <Image Source="/Images/gobottom.png"/>
-                                </Button>
-                            </StackPanel>
-                        </ToolBar>
-                    </ToolBarTray>
-                    <DataGrid Name="FileTab" Background="Transparent" GridLinesVisibility="All">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Filename" Width="150" Binding="{Binding Filename}"/>
-                            <DataGridTextColumn Header="New Filename" Width="150" Binding="{Binding Newfilename}"/>
-                            <DataGridTextColumn Header="Path" Width="150" Binding="{Binding Path}"/>
-                            <DataGridTextColumn Header="Errro" Width="*" Binding="{Binding Erro}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </StackPanel>
-            </TabItem>
-            <TabItem Header="Rename Folder">
-                <StackPanel Orientation="Vertical">
-                    <ToolBarTray>
-                        <ToolBar>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Style="{StaticResource MyButton}" x:Name="AddFolderButtons" Margin="5 0 5 0">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Image Source="/Images/Add.png" Height="16" Width="16" RenderOptions.BitmapScalingMode="HighQuality" Margin="0 0 2 0"/>
-                                        <TextBlock Text="Add"/>
-                                    </StackPanel>
-                                </Button>
-                                <Button Style="{StaticResource MyButton}" Height="20">
-                                    <Image Source="/Images/gotop.png"/>
-                                </Button>
-                                <Button Style="{StaticResource MyButton}" Height="20">
-                                    <Image Source="/Images/goleft.png"/>
-                                </Button>
-                                <Button Style="{StaticResource MyButton}" Height="20">
-                                    <Image Source="/Images/goright.png"/>
-                                </Button>
-                                <Button Style="{StaticResource MyButton}" Height="20">
-                                    <Image Source="/Images/gobottom.png"/>
-                                </Button>
-                            </StackPanel>
-                        </ToolBar>
-                    </ToolBarTray>
-                    <DataGrid Name="FolderTab" Background="Transparent" GridLinesVisibility="All">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Foldername" Width="150" Binding="{Binding Foldername}"/>
-                            <DataGridTextColumn Header="New Foldername" Width="150" Binding="{Binding Newfilename}"/>
-                            <DataGridTextColumn Header="Path" Width="150" Binding="{Binding Path}"/>
-                            <DataGridTextColumn Header="Errro" Width="*" Binding="{Binding Erro}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </StackPanel>
-            </TabItem>
-        </TabControl>
-        
-    </Grid>-->
-
-
     <DockPanel>
         <!--Thanh công cụ -->
         <ToolBarTray DockPanel.Dock="Top">
@@ -234,7 +55,7 @@
                         </MenuItem>
                     </Menu>
                     <Separator />
-                    
+
                     <!--Clear Button-->
                     <!--<Button Name="IconLeftClear" >
                         <Image Source="/Images/refresh.png" Height="20" Width="20" RenderOptions.BitmapScalingMode="HighQuality"></Image>
@@ -247,13 +68,13 @@
                     </Button>
                     <Separator/>
 
-                    
+
                     <!--Nhóm button di chuyển phương thức-->
                     <Button x:Name="bnt_First" >
                         <Image Name="IconFirst" Source="/Images/gotop.png" Height="20" Width="20" RenderOptions.BitmapScalingMode="HighQuality"></Image>
                     </Button>
                     <Button x:Name="bnt_Top" >
-                        <Image Name="IconTop" Source="/Images/goup.png" Height="16" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image> 
+                        <Image Name="IconTop" Source="/Images/goup.png" Height="16" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
                     </Button>
                     <Button x:Name="bnt_Down" >
                         <Image Name="IconDown" Source="/Images/godown.png" Height="14" Width="14" RenderOptions.BitmapScalingMode="HighQuality"></Image>
@@ -263,7 +84,7 @@
                     </Button>
                 </ToolBar>
             </ToolBarTray>
-            
+
             <ToolBarTray>
                 <ToolBar>
                     <!--Button thêm preset-->
@@ -286,7 +107,7 @@
                     </ComboBox>
                 </ToolBar>
             </ToolBarTray>
-            
+
             <ListView x:Name="ListViewMethod" Height="473" Margin="2"  SelectionMode="Single">
                 <ListView.ItemContainerStyle  >
                     <Style TargetType="{x:Type ListViewItem}"   >
@@ -426,13 +247,13 @@
                                     <GridViewColumn Header="Path"  DisplayMemberBinding="{Binding Path}" Width="180"/>
                                     <GridViewColumn Header="Error" DisplayMemberBinding="{Binding Error}" Width="180"/>
                                 </GridView>
-                                
+
                             </ListView.View>
                         </ListView>
                     </StackPanel>
                 </TabItem>
-                
-                
+
+
                 <!--Tab làm việc với thư mục-->
                 <TabItem Header="Rename Folders" >
                     <StackPanel Orientation="Vertical" Background="#FFF6F6F6">
@@ -508,5 +329,4 @@
             </TabControl>
         </StackPanel>
     </DockPanel>
-
 </Window>
