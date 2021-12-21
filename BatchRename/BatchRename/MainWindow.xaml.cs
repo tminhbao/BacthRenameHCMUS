@@ -32,16 +32,6 @@ namespace BatchRename
             InitializeComponent();            
         }
 
-        public class File : INotifyPropertyChanged
-        {
-            public string oldName { get; set; }
-            public string filePath { get; set; }
-            public string newName { get; set; }
-            public string err { get; set; }
-
-            public event PropertyChangedEventHandler PropertyChanged;
-        }
-
         class FileSelected:INotifyPropertyChanged
         {
             public string Filename { get; set; }
@@ -162,8 +152,6 @@ namespace BatchRename
                 ListFileSelected.SelectedItem = ListFileSelected.Items[ListFileSelected.Items.Count - 1];
             }
         }
-
-
 
         // Di chuyển folder
         private void MoveFirstFolderButton_Click(object sender, RoutedEventArgs e)
