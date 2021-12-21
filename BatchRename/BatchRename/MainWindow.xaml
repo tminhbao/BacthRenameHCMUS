@@ -371,22 +371,11 @@
                         <ToolBarTray>
                             <ToolBar>
                                 <Menu>
-                                    <MenuItem Header="_Add" Name="MenuAddFile">
+                                    <MenuItem Header="_Add" Name="MenuAddFile"  Click="AddFileButtons_Click">
                                         <MenuItem.Icon>
                                             <Image x:Name="IconAddFile" 
                                                    Source="/Images/add.png" Height="20" Width="20"></Image>
                                         </MenuItem.Icon>
-                                        <MenuItem Header="_Files.." Name="Files" >
-                                            <MenuItem.Icon>
-                                                <Image Name="IconFile"  
-                                                   Source="/Images/addfile.png" Height="20" Width="20"/>
-                                            </MenuItem.Icon>
-                                        </MenuItem>
-                                        <MenuItem Header="_Directoties.." Name="Directories" >
-                                            <MenuItem.Icon>
-                                                <Image Name="IconDirectories" Source="/Images/addfolder.png" Height="20" Width="20"/>
-                                            </MenuItem.Icon>
-                                        </MenuItem>
                                     </MenuItem>
                                 </Menu>
                                 <Separator/>

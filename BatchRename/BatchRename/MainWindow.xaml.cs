@@ -16,7 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using Microsoft.Win32;
-
+using Path = System.IO.Path;
 
 namespace BatchRename
 {
@@ -49,22 +49,40 @@ namespace BatchRename
             public event PropertyChangedEventHandler PropertyChanged;
         }
 
-    
-
-
-        List<Path> _paths = new List<Path>();
-        class Path
+        class FileSelected
         {
-            public string Name { get; set; }
+            public string Filename { get; set; }
+            public string Newname { get; set; }
+            public string Oldname { get; set; }
+            public string Path { get; set; }
+            public string Error { get; set; }
+            public bool IsGroovy { get; set; }
+            public string Extension { get; set; }
         }
 
+
+        // Load được file lên UI
         private void AddFileButtons_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
             openFileDialog.Multiselect = true;
+            openFileDialog.Filter = "All file (*.*)|*.*";
             if (openFileDialog.ShowDialog() == true)
             {
-                _paths.Add(new Path() { Name = openFileDialog.FileName });
+                //đọc file vào danh sách
+                foreach (string filename in openFileDialog.FileNames)
+                {
+                    ListFileSelected.Items.Add(new FileSelected()
+                    {
+                        Filename = Path.GetFileName(filename),
+                        Newname = Path.GetFileNameWithoutExtension(filename),
+                        Oldname = Path.GetFileNameWithoutExtension(filename),
+                        Path = filename,
+                        Error = " ",
+                        IsGroovy = true,
+                        Extension = Path.GetExtension(filename)
+                    });
+                }
             }
         }
 
