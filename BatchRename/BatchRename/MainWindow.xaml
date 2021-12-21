@@ -371,15 +371,14 @@
                         <ToolBarTray>
                             <ToolBar>
                                 <Menu>
-                                    <MenuItem Header="_Add" Name="MenuAddFile"  Click="AddFileButtons_Click">
+                                    <MenuItem Header="_Add" Name="MenuAddFile" Click="AddFileButtons_Click">
                                         <MenuItem.Icon>
                                             <Image x:Name="IconAddFile" 
-                                                   Source="/Images/add.png" Height="20" Width="20"></Image>
+                                                   Source="/Images/addfile.png" Height="20" Width="20"></Image>
                                         </MenuItem.Icon>
                                     </MenuItem>
                                 </Menu>
                                 <Separator/>
-
                                 <!--Nhóm button di chuyển tập tin-->
                                 <Button x:Name="bnt_FirstFile">
                                     <Image Name="IconFirstFile" 
@@ -405,7 +404,7 @@
 
 
                         <!--ListView chứa các file cần thao tác-->
-                        <ListView x:Name="ListFileSelected"   SelectionMode="Single"
+                        <ListView x:Name="ListFileSelected" SelectionMode="Single"
                                   Height="480" ScrollViewer.VerticalScrollBarVisibility="Visible"  Background="AntiqueWhite" FontWeight="Bold" >
                             <ListView.View>
 
@@ -440,16 +439,13 @@
                         <ToolBarTray>
                             <ToolBar>
                                 <Menu>
-                                    <MenuItem Header="_Add" Name="MenuAddFolder">
+                                    <MenuItem Header="_Add" Name="MenuAddFolder" Click="AddFolderButton_Click">
                                         <MenuItem.Icon>
-                                            <Image Name="IconMenuAddFolder"  Height="20" Width="20" Source="/Images/add.png"
-                                         ></Image>
-
+                                            <Image Name="IconMenuAddFolder"  Height="20" Width="20" Source="/Images/addfolder.png"/>
                                         </MenuItem.Icon>
                                         <MenuItem Header="_Directoties.." Name="Directories1" >
                                             <MenuItem.Icon>
-                                                <Image Name="IconDirectories1" Height="20" Width="20" Source="/Images/addfolder.png"
-                                                   />
+                                                <Image Name="IconDirectories1" Height="20" Width="20" Source="/Images/addfolder.png"/>
                                             </MenuItem.Icon>
                                         </MenuItem>
                                         <MenuItem Header="_SubDirectoties.." Name="SubDirectories" >

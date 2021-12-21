@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -17,6 +18,7 @@ using System.Windows.Shapes;
 
 using Microsoft.Win32;
 using Path = System.IO.Path;
+
 
 namespace BatchRename
 {
@@ -60,6 +62,17 @@ namespace BatchRename
             public string Extension { get; set; }
         }
 
+        class FolderSelected
+        {
+            public string Foldername { get; set; }
+            public string NewFoldername { get; set; }
+            public string Oldname { get; set; }
+            public string PathFolder { get; set; }
+            public string ErrorFolder { get; set; }
+            public bool IsGroovyDir { get; set; }
+        }
+            
+
 
         // Load được file lên UI
         private void AddFileButtons_Click(object sender, RoutedEventArgs e)
@@ -85,6 +98,26 @@ namespace BatchRename
                 }
             }
         }
-
+        private void AddFolderButton_Click(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog browserDialog = new FolderBrowserDialog();
+            browserDialog.RootFolder = Environment.SpecialFolder.Desktop;
+            browserDialog.ShowNewFolderButton = false;
+            browserDialog.SelectedPath = System.AppDomain.CurrentDomain.BaseDirectory;
+            if (browserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string sPath = browserDialog.SelectedPath;
+                DirectoryInfo directoryInfo = new DirectoryInfo(sPath);
+                ListFolderSelected.Items.Add(new FolderSelected()
+                {
+                    Foldername = directoryInfo.Name,
+                    NewFoldername = directoryInfo.Name,
+                    Oldname = directoryInfo.Name,
+                    PathFolder = directoryInfo.FullName,
+                    ErrorFolder = " ",
+                    IsGroovyDir = true
+                });
+            }
+        }
     }
 }
