@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BatchRename"
         mc:Ignorable="d"
-        Title="ChangeExtension" Height="150" Width="222">
+        Title="ChangeExtension" Height="181" Width="279">
     <StackPanel Orientation="Vertical" Margin="19,19,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
         <StackPanel Orientation="Horizontal" Margin="10">
             <Label Content="Convert" Width="90" FontWeight="DemiBold" >

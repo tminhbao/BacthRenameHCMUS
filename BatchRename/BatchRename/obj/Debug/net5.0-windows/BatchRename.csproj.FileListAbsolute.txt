@@ -25,3 +25,5 @@ D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\Batc
 D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\BatchRename.csproj.Fody.CopyLocal.cache
 D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\ChangeExtension.g.cs
 D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\ChangeExtension.baml
+D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\Replace.g.cs
+D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\Replace.baml

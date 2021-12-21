@@ -5,25 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BatchRename"
         mc:Ignorable="d"
-        Title="Replace" Height="161" Width="251">
-    <StackPanel Orientation="Vertical" Margin="19,19,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+        Title="Replace" Height="209" Width="380">
+    <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <StackPanel Orientation="Horizontal" Margin="10">
-            <Label Content="Replace" Width="90" FontWeight="DemiBold" >
-                <UIElement.RenderTransform>
-                    <MatrixTransform/>
-                </UIElement.RenderTransform>
-            </Label>
-            <!--<TextBox Name="Convert"  Width="200" 
+            <Label Content="Old Content" Width="90" FontWeight="DemiBold" ></Label>
+            <TextBox Name="OldContent" Text="{Binding From}" Width="200" 
                          BorderBrush="LightBlue" BorderThickness="2"
-                         TextChanged="Convert_TextChanged"/>-->
-            <TextBox Name="Convert"  Width="80" />
+                         TextChanged="OldContent_TextChanged"
+                         />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="10">
-            <Label Content="To"  Width="90" FontWeight="DemiBold" ></Label>
-            <!--<TextBox Name="To"  Width="200"
+            <Label Content="New Content"  Width="90" FontWeight="DemiBold" ></Label>
+            <TextBox Name="NewContent" Text="{Binding To}" Width="200"
                      BorderBrush="LightBlue" BorderThickness="2" 
-                     TextChanged="To_TextChanged"/>-->
-            <TextBox Name="To"  Width="80"/>
+                     TextChanged="NewContent_TextChanged"/>
         </StackPanel>
     </StackPanel>
 </Window>

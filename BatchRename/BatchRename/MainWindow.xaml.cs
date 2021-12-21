@@ -32,28 +32,242 @@ namespace BatchRename
             InitializeComponent();            
         }
 
-        class FileSelected:INotifyPropertyChanged
+        //Class File
+        public class FileSelected : INotifyPropertyChanged
         {
-            public string Filename { get; set; }
-            public string Newname { get; set; }
-            public string Oldname { get; set; }
-            public string Path { get; set; }
-            public string Error { get; set; }
-            public bool IsGroovy { get; set; }
-            public string Extension { get; set; }
+
+            private string _oldname;
+
+            public string Oldname
+            {
+                get { return _oldname; }
+                set
+                {
+                    _oldname = value;
+                    OnPropertyChanged("Oldname");
+                }
+            }
+            private string _filename;
+            public string Filename
+            {
+                get { return _filename; }
+                set
+                {
+                    _filename = value;
+                    OnPropertyChanged("Filename");
+                }
+            }
+
+            private string newname;
+            public string Newname
+            {
+                get { return newname; }
+                set
+                {
+                    newname = value;
+                    OnPropertyChanged("Newname");
+                }
+            }
+
+
+            private string path;
+            public string Path
+            {
+                get { return path; }
+                set
+                {
+                    path = value;
+                    OnPropertyChanged("Path");
+                }
+            }
+
+            private string error;
+            public string Error
+            {
+                get { return error; }
+                set
+                {
+                    error = value;
+                    OnPropertyChanged("Error");
+                }
+            }
+
+            private bool isgroovy;
+            public bool IsGroovy
+            {
+                get { return isgroovy; }
+                set
+                {
+                    isgroovy = value;
+                    OnPropertyChanged("IsGroovy");
+                }
+            }
+
+            private string extension;
+            public string Extension
+            {
+                get { return extension; }
+                set
+                {
+                    extension = value;
+                    OnPropertyChanged("Extension");
+                }
+            }
 
             public event PropertyChangedEventHandler PropertyChanged;
+
+            protected void OnPropertyChanged(string property)
+            {
+                PropertyChangedEventHandler handler = PropertyChanged;
+                if (handler != null)
+                {
+                    handler(this, new PropertyChangedEventArgs(property));
+                }
+            }
         }
 
-        class FolderSelected
+
+        //Class Folder
+        public class FolderSelected : INotifyPropertyChanged
         {
-            public string Foldername { get; set; }
-            public string NewFoldername { get; set; }
-            public string Oldname { get; set; }
-            public string PathFolder { get; set; }
-            public string ErrorFolder { get; set; }
-            public bool IsGroovyDir { get; set; }
+
+            private string _oldname;
+
+            public string Oldname
+            {
+                get { return _oldname; }
+                set
+                {
+                    _oldname = value;
+                    OnFolderChanged("Oldname");
+                }
+            }
+
+            private string _foldername;
+            public string Foldername
+            {
+                get { return _foldername; }
+                set
+                {
+                    _foldername = value;
+                    OnFolderChanged("Foldername");
+                }
+            }
+
+            private string newfoldername;
+            public string NewFoldername
+            {
+                get { return newfoldername; }
+                set
+                {
+                    newfoldername = value;
+                    OnFolderChanged("NewFoldername");
+                }
+            }
+
+
+            private string pathfolder;
+            public string PathFolder
+            {
+                get { return pathfolder; }
+                set
+                {
+                    pathfolder = value;
+                    OnFolderChanged("PathFolder");
+                }
+            }
+
+            private string errorfolder;
+            public string ErrorFolder
+            {
+                get { return errorfolder; }
+                set
+                {
+                    errorfolder = value;
+                    OnFolderChanged("ErrorFolder");
+                }
+            }
+
+
+            private bool isgroovydir;
+            public bool IsGroovyDir
+            {
+                get { return isgroovydir; }
+                set
+                {
+                    isgroovydir = value;
+                    OnFolderChanged("IsGroovyDir");
+                }
+            }
+
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            protected void OnFolderChanged(string property)
+            {
+                PropertyChangedEventHandler handler = PropertyChanged;
+                if (handler != null)
+                {
+                    handler(this, new PropertyChangedEventArgs(property));
+                }
+            }
         }
+
+        //Class Method
+
+        public class Method : INotifyPropertyChanged
+        {
+
+            private Window page;
+            private string nameMethod;
+            private bool isCheckMethod;
+
+            public Window PageMethod
+            {
+                get { return page; }
+                set
+                {
+                    page = value;
+                    OnPropertyChanged("PageMethod");
+                }
+            }
+
+            public string NameMethod
+            {
+                get { return nameMethod; }
+                set
+                {
+                    nameMethod = value;
+                    OnPropertyChanged("NameMethod");
+                }
+
+            }
+
+            public bool IsCheckMethod
+            {
+                get { return isCheckMethod; }
+                set
+                {
+                    isCheckMethod = value;
+                    OnPropertyChanged("IsCheckMethod");
+                }
+            }
+
+
+            public event PropertyChangedEventHandler PropertyChanged;
+            protected void OnPropertyChanged(string property)
+            {
+                PropertyChangedEventHandler handler = PropertyChanged;
+                if (handler != null)
+                {
+                    handler(this, new PropertyChangedEventArgs(property));
+                }
+            }
+
+        } 
+
+
+
+
 
         // Load được file lên UI
         private void AddFileButtons_Click(object sender, RoutedEventArgs e)
@@ -103,7 +317,10 @@ namespace BatchRename
             }
         }
 
-        // Di chuyển file
+
+
+
+        // Button di chuyển file
         List<FileSelected> _listFileSelected = new List<FileSelected>();
         private void MoveFirstFileButton_Click(object sender, RoutedEventArgs e)
         {
@@ -153,7 +370,7 @@ namespace BatchRename
             }
         }
 
-        // Di chuyển folder
+        // Button di chuyển folder
         private void MoveFirstFolderButton_Click(object sender, RoutedEventArgs e)
         {
             if (ListFolderSelected.SelectedIndex > 0)
@@ -201,5 +418,125 @@ namespace BatchRename
                 ListFolderSelected.SelectedItem = ListFolderSelected.Items[ListFolderSelected.Items.Count - 1];
             }
         }
+
+        // Button di chuyển method
+        private void MoveFirstMethodButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListViewMethod.SelectedIndex > 0)
+            {
+                var item = ListViewMethod.SelectedItem as Method;
+                var index = ListViewMethod.SelectedIndex;
+                ListViewMethod.Items.RemoveAt(index);
+                ListViewMethod.Items.Insert(0, item);
+                ListViewMethod.SelectedItem = ListViewMethod.Items[0];
+            }
+        }
+
+        private void MoveUpMethodButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListViewMethod.SelectedIndex > 0)
+            {
+                var item = ListViewMethod.SelectedItem as Method;
+                var index = ListViewMethod.SelectedIndex;
+                ListViewMethod.Items.RemoveAt(index);
+                ListViewMethod.Items.Insert(index - 1, item);
+                ListViewMethod.SelectedItem = ListViewMethod.Items[index - 1];
+            }
+        }
+
+        private void MoveDownMethodButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListViewMethod.SelectedIndex >= 0 && ListViewMethod.SelectedIndex < ListViewMethod.Items.Count - 1)
+            {
+                var item = ListViewMethod.SelectedItem as Method;
+                var index = ListViewMethod.SelectedIndex;
+                ListViewMethod.Items.RemoveAt(index);
+                ListViewMethod.Items.Insert(index + 1, item);
+                ListViewMethod.SelectedItem = ListViewMethod.Items[index + 1];
+            }
+        }
+
+        private void MoveBottomMethodButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListViewMethod.SelectedIndex >= 0 && ListViewMethod.SelectedIndex < ListViewMethod.Items.Count)
+            {
+                var item = ListViewMethod.SelectedItem as Method;
+                var index = ListViewMethod.SelectedIndex;
+                ListViewMethod.Items.RemoveAt(index);
+                ListViewMethod.Items.Insert(ListViewMethod.Items.Count, item);
+                ListViewMethod.SelectedItem = ListViewMethod.Items[ListViewMethod.Items.Count - 1];
+            }
+        }
+
+
+
+
+
+
+
+        //Hàm xử lý phương thức Replace
+        public void ReplaceOperation(string from, string to)
+        {
+            foreach (FileSelected fileSelected in ListFileSelected.Items)
+            {
+                if (fileSelected.IsGroovy)
+                {
+
+                    fileSelected.Newname = fileSelected.Oldname;
+                    string temp = fileSelected.Newname;
+                    if (from.Length > 0)
+                    {
+
+                        fileSelected.Newname = temp.Replace(from, to);
+
+                    }
+                    else
+                    {
+                        fileSelected.Newname = temp;
+                    }
+
+                }
+            }
+
+            foreach (FolderSelected folderSelected in ListFolderSelected.Items)
+            {
+                if (folderSelected.IsGroovyDir)
+                {
+
+                    folderSelected.NewFoldername = folderSelected.Oldname;
+                    string temp = folderSelected.NewFoldername;
+                    if (from.Length > 0)
+                    {
+
+                        folderSelected.NewFoldername = temp.Replace(from, to);
+                    }
+                    else
+                    {
+                        folderSelected.NewFoldername = temp;
+                    }
+
+                }
+            }
+        }
+
+        //Hàm xử lý sự kiện khi nhấn vào Replace trong AddMethod
+        private void ReplaceMethod_Click(object sender, RoutedEventArgs e)
+        {
+            Replace replaceFrame = new Replace();
+            foreach (FileSelected fileSelected in ListFileSelected.Items)
+            {
+                fileSelected.Oldname = fileSelected.Newname;
+            }
+
+            foreach (FolderSelected folderSelected in ListFolderSelected.Items)
+            {
+                folderSelected.Oldname = folderSelected.NewFoldername;
+            }
+
+            replaceFrame.TextBoxChanged += ReplaceOperation;
+            ListViewMethod.Items.Add(new Method() { PageMethod = replaceFrame, NameMethod = "Replace", IsCheckMethod = true });
+        }
+
+        
     }
 }

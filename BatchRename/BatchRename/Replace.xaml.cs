@@ -19,9 +19,28 @@ namespace BatchRename
     /// </summary>
     public partial class Replace : Window
     {
+        public delegate void ReplaceDelegate(string newOldContent, string newNewContent);
+        public event ReplaceDelegate TextBoxChanged = null;
         public Replace()
         {
             InitializeComponent();
         }
+
+        private void OldContent_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            FireContentChangedEvent();
+        }
+
+        private void NewContent_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            FireContentChangedEvent();
+        }
+
+        private void FireContentChangedEvent()
+        {
+
+            TextBoxChanged?.Invoke(OldContent.Text, NewContent.Text);
+        }
+
     }
 }
