@@ -32,15 +32,6 @@ namespace BatchRename
             InitializeComponent();            
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            // Load file lên UI
-            List<File> _files = new List<File>();
-            _files.Add(new File() { filePath = "path đây nè", oldName = "ABC", newName = "BCD" });
-            _files.Add(new File() { filePath = "path đây nè 11", oldName = "ABC  11", newName = "BCD 11" });
-
-        }
-
         public class File : INotifyPropertyChanged
         {
             public string oldName { get; set; }
@@ -51,7 +42,7 @@ namespace BatchRename
             public event PropertyChangedEventHandler PropertyChanged;
         }
 
-        class FileSelected
+        class FileSelected:INotifyPropertyChanged
         {
             public string Filename { get; set; }
             public string Newname { get; set; }
@@ -60,6 +51,8 @@ namespace BatchRename
             public string Error { get; set; }
             public bool IsGroovy { get; set; }
             public string Extension { get; set; }
+
+            public event PropertyChangedEventHandler PropertyChanged;
         }
 
         class FolderSelected
@@ -71,8 +64,6 @@ namespace BatchRename
             public string ErrorFolder { get; set; }
             public bool IsGroovyDir { get; set; }
         }
-            
-
 
         // Load được file lên UI
         private void AddFileButtons_Click(object sender, RoutedEventArgs e)
@@ -98,6 +89,8 @@ namespace BatchRename
                 }
             }
         }
+
+        // Load được Folder lên UI
         private void AddFolderButton_Click(object sender, RoutedEventArgs e)
         {
             FolderBrowserDialog browserDialog = new FolderBrowserDialog();
@@ -119,5 +112,56 @@ namespace BatchRename
                 });
             }
         }
+
+        // Di chuyển file
+        List<FileSelected> _listFileSelected = new List<FileSelected>();
+        private void MoveFirstFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListFileSelected.SelectedIndex > 0)
+            {
+                var item = (FileSelected)ListFileSelected.SelectedItem;
+                var index = ListFileSelected.SelectedIndex;
+                ListFileSelected.Items.RemoveAt(index);
+                ListFileSelected.Items.Insert(0, item);
+                ListFileSelected.SelectedItem = ListFileSelected.Items[0];
+            }
+        }
+
+        private void MoveUpFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListFileSelected.SelectedIndex > 0)
+            {
+                var item = (FileSelected)ListFileSelected.SelectedItem;
+                var index = ListFileSelected.SelectedIndex;
+                ListFileSelected.Items.RemoveAt(index);
+                ListFileSelected.Items.Insert(index - 1, item);
+                ListFileSelected.SelectedItem = ListFileSelected.Items[index - 1];
+            }
+        }
+
+        private void MoveDownFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListFileSelected.SelectedIndex >= 0 && ListFileSelected.SelectedIndex < ListFileSelected.Items.Count - 1)
+            {
+                var item = (FileSelected)ListFileSelected.SelectedItem;
+                var index = ListFileSelected.SelectedIndex;
+                ListFileSelected.Items.RemoveAt(index);
+                ListFileSelected.Items.Insert(index + 1, item);
+                ListFileSelected.SelectedItem = ListFileSelected.Items[index + 1];
+            }
+        }
+
+        private void MoveBottomFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListFileSelected.SelectedIndex >= 0 && ListFileSelected.SelectedIndex < ListFileSelected.Items.Count)
+            { 
+                var item = (FileSelected)ListFileSelected.SelectedItem;
+                var index = ListFileSelected.SelectedIndex;
+                ListFileSelected.Items.RemoveAt(index);
+                ListFileSelected.Items.Insert(ListFileSelected.Items.Count, item);
+                ListFileSelected.SelectedItem = ListFileSelected.Items[ListFileSelected.Items.Count - 1];
+            }
+        }
+
     }
 }

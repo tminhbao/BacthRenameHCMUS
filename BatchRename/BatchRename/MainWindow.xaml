@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BatchRename"
         mc:Ignorable="d"
-        Title="My Rename" Height="500" Width="1000" Loaded="Window_Loaded">
+        Title="My Rename" Height="500" Width="1000">
     <DockPanel>
         <!--Thanh công cụ -->
         <ToolBarTray DockPanel.Dock="Top">
@@ -201,20 +201,20 @@
                                 </Menu>
                                 <Separator/>
                                 <!--Nhóm button di chuyển tập tin-->
-                                <Button x:Name="bnt_FirstFile">
+                                <Button x:Name="bnt_FirstFile" Click="MoveFirstFileButton_Click">
                                     <Image Name="IconFirstFile" 
                                        Source="/Images/gotop.png" Height="20" Width="20"></Image>
 
                                 </Button>
-                                <Button  x:Name="bnt_UpFile">
+                                <Button  x:Name="bnt_UpFile" Click="MoveUpFileButton_Click">
                                     <Image Name="IconTopFile"
                                         Source="/Images/goup.png" Height="20" Width="20"></Image>
                                 </Button>
-                                <Button  x:Name="bnt_DownFile" >
+                                <Button  x:Name="bnt_DownFile" Click="MoveDownFileButton_Click" >
                                     <Image Name="IconDownFile"
                                         Source="/Images/godown.png" Height="20" Width="20"></Image>
                                 </Button>
-                                <Button  x:Name="bnt_LastFile" >
+                                <Button  x:Name="bnt_LastFile" Click="MoveBottomFileButton_Click" >
                                     <Image Name="IconLastFile"
                                         Source="/Images/gobottom.png" Height="20" Width="20"></Image>
                                 </Button>
