@@ -8,6 +8,9 @@
 
   <ItemGroup>
     <None Remove="Images\add.png" />
+    <None Remove="Images\addfile.png" />
+    <None Remove="Images\addfolder.png" />
+    <None Remove="Images\addsubfolder.png" />
     <None Remove="Images\clear.png" />
     <None Remove="Images\gobottom.png" />
     <None Remove="Images\godown.png" />
@@ -35,6 +38,15 @@
 
   <ItemGroup>
     <Resource Include="Images\add.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\addfile.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\addfolder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\addsubfolder.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\clear.png">
