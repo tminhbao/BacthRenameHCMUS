@@ -49,7 +49,7 @@
                             <MenuItem Header="_New Case" Name="NewCase" />
                             <MenuItem Header="_Move" Name="Move" />
                             <MenuItem Header="_Remove" Name="Remove" />
-                            <MenuItem Header="_Replace" Name="Replace" Click="ReplaceMethod_Click" />
+                            <MenuItem Header="_Replace" Name="Replace" Click="Replace_Click" />
                             <MenuItem Header="_Trim" Name="Trim" />
                             <MenuItem Header="_Extension" Name="Extension" />
                         </MenuItem>
@@ -62,7 +62,7 @@
                     </Button>-->
                     <Button Name="btn_Clear">
                         <StackPanel Orientation="Horizontal">
-                            <Image Name="IconRightClear" Source="/Images/clear.png" Height="20" Width="20"  RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                            <Image Name="IconRightClear" Source="/Images/clear.png" Height="20" Width="20" RenderOptions.BitmapScalingMode="HighQuality"></Image>
                             <TextBlock Text="Clear" Margin="5,0,0,0"></TextBlock>
                         </StackPanel>
                     </Button>
@@ -184,7 +184,7 @@
         </StackPanel>
 
         <!--Cửa sổ làm việc bên phải-->
-        <StackPanel  Orientation="Vertical" DockPanel.Dock="Right">
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Right">
             <TabControl TabStripPlacement="Top">
 
                 <!--Tab làm việc với file-->
@@ -220,8 +220,6 @@
                                 </Button>
                             </ToolBar>
                         </ToolBarTray>
-
-
 
                         <!--ListView chứa các file cần thao tác-->
                         <ListView x:Name="ListFileSelected" SelectionMode="Single"
@@ -278,7 +276,7 @@
                                 </Menu>
                                 <Separator/>
                                 <Button x:Name="bnt_FirstFolder" Click="MoveFirstFolderButton_Click">
-                                    <Image Name="IconFirstFolder" 
+                                    <Image Name="IconFirstFolde" RenderOptions.BitmapScalingMode="HighQuality" 
                                        Source="/Images/gotop.png" Height="20" Width="20"></Image>
                                 </Button>
                                 <Button  x:Name="bnt_UpFolder" Click="MoveUpFolderButton_Click">

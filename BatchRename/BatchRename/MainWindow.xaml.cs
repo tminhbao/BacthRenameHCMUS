@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Batch_Rename;
 using Microsoft.Win32;
 using Path = System.IO.Path;
 
@@ -31,101 +31,6 @@ namespace BatchRename
         {
             InitializeComponent();            
         }
-
-        //Class File
-        public class FileSelected : INotifyPropertyChanged
-        {
-
-            private string _oldname;
-
-            public string Oldname
-            {
-                get { return _oldname; }
-                set
-                {
-                    _oldname = value;
-                    OnPropertyChanged("Oldname");
-                }
-            }
-            private string _filename;
-            public string Filename
-            {
-                get { return _filename; }
-                set
-                {
-                    _filename = value;
-                    OnPropertyChanged("Filename");
-                }
-            }
-
-            private string newname;
-            public string Newname
-            {
-                get { return newname; }
-                set
-                {
-                    newname = value;
-                    OnPropertyChanged("Newname");
-                }
-            }
-
-
-            private string path;
-            public string Path
-            {
-                get { return path; }
-                set
-                {
-                    path = value;
-                    OnPropertyChanged("Path");
-                }
-            }
-
-            private string error;
-            public string Error
-            {
-                get { return error; }
-                set
-                {
-                    error = value;
-                    OnPropertyChanged("Error");
-                }
-            }
-
-            private bool isgroovy;
-            public bool IsGroovy
-            {
-                get { return isgroovy; }
-                set
-                {
-                    isgroovy = value;
-                    OnPropertyChanged("IsGroovy");
-                }
-            }
-
-            private string extension;
-            public string Extension
-            {
-                get { return extension; }
-                set
-                {
-                    extension = value;
-                    OnPropertyChanged("Extension");
-                }
-            }
-
-            public event PropertyChangedEventHandler PropertyChanged;
-
-            protected void OnPropertyChanged(string property)
-            {
-                PropertyChangedEventHandler handler = PropertyChanged;
-                if (handler != null)
-                {
-                    handler(this, new PropertyChangedEventArgs(property));
-                }
-            }
-        }
-
 
         //Class Folder
         public class FolderSelected : INotifyPropertyChanged
@@ -217,11 +122,11 @@ namespace BatchRename
         public class Method : INotifyPropertyChanged
         {
 
-            private Window page;
+            private Page page;
             private string nameMethod;
             private bool isCheckMethod;
 
-            public Window PageMethod
+            public Page PageMethod
             {
                 get { return page; }
                 set
@@ -264,10 +169,6 @@ namespace BatchRename
             }
 
         } 
-
-
-
-
 
         // Load được file lên UI
         private void AddFileButtons_Click(object sender, RoutedEventArgs e)
@@ -520,9 +421,9 @@ namespace BatchRename
         }
 
         //Hàm xử lý sự kiện khi nhấn vào Replace trong AddMethod
-        private void ReplaceMethod_Click(object sender, RoutedEventArgs e)
+        private void Replace_Click(object sender, RoutedEventArgs e)
         {
-            Replace replaceFrame = new Replace();
+            ReplaceFrame replaceFrame = new ReplaceFrame();
             foreach (FileSelected fileSelected in ListFileSelected.Items)
             {
                 fileSelected.Oldname = fileSelected.Newname;
@@ -535,8 +436,8 @@ namespace BatchRename
 
             replaceFrame.TextBoxChanged += ReplaceOperation;
             ListViewMethod.Items.Add(new Method() { PageMethod = replaceFrame, NameMethod = "Replace", IsCheckMethod = true });
+
         }
 
-        
     }
 }

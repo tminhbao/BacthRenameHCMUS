@@ -1,11 +1,13 @@
-﻿<Window x:Class="BatchRename.Replace"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BatchRename"
-        mc:Ignorable="d"
-        Title="Replace" Height="209" Width="380">
+﻿<Page x:Class="Batch_Rename.ReplaceFrame"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Batch_Rename"
+      mc:Ignorable="d" 
+      d:DesignHeight="200" d:DesignWidth="400"
+      Title="ReplaceFrame" Background="White">
+
     <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <StackPanel Orientation="Horizontal" Margin="10">
             <Label Content="Old Content" Width="90" FontWeight="DemiBold" ></Label>
@@ -20,5 +22,8 @@
                      BorderBrush="LightBlue" BorderThickness="2" 
                      TextChanged="NewContent_TextChanged"/>
         </StackPanel>
+
+
     </StackPanel>
-</Window>
+
+</Page>

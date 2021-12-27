@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -10,22 +12,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BatchRename
+namespace Batch_Rename
 {
-    /// <summary>
-    /// Interaction logic for Replace.xaml
-    /// </summary>
-    public partial class Replace : Window
+
+    public partial class ReplaceFrame : Page
     {
         public delegate void ReplaceDelegate(string newOldContent, string newNewContent);
         public event ReplaceDelegate TextBoxChanged = null;
-        public Replace()
+
+
+
+        public ReplaceFrame()
         {
             InitializeComponent();
-        }
 
+
+
+        }
         private void OldContent_TextChanged(object sender, TextChangedEventArgs e)
         {
             FireContentChangedEvent();
@@ -36,11 +42,18 @@ namespace BatchRename
             FireContentChangedEvent();
         }
 
+
+
         private void FireContentChangedEvent()
         {
 
             TextBoxChanged?.Invoke(OldContent.Text, NewContent.Text);
         }
+
+
+
+
+
 
     }
 }
