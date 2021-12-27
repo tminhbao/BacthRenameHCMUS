@@ -193,11 +193,23 @@
                         <ToolBarTray>
                             <ToolBar>
                                 <Menu>
-                                    <MenuItem Header="_Add" Name="MenuAddFile" Click="AddFileButtons_Click">
+                                    <MenuItem Header="_Add" Name="MenuAddFile">
                                         <MenuItem.Icon>
-                                            <Image x:Name="IconAddFile" 
-                                                   Source="/Images/addfile.png" Height="20" Width="20"></Image>
+                                            <Image x:Name="IconAddFile" Width="20" Height="20" RenderOptions.BitmapScalingMode="HighQuality"
+                                                   Source="/Images/add.png"></Image>
                                         </MenuItem.Icon>
+                                        <MenuItem Header="_Files.." Name="Files" Click=" AddFileButton_Click" >
+                                            <MenuItem.Icon>
+                                                <Image Name="IconFile" Width="20" Height="20" RenderOptions.BitmapScalingMode="HighQuality"
+                                                   Source="/Images/addfile.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Header="_Directoties.." Name="Directories" Click="AddDirectoryButton_Click">
+                                            <MenuItem.Icon>
+                                                <Image Name="IconDirectories" Width="20" Height="20" RenderOptions.BitmapScalingMode="HighQuality"
+                                                   Source="/Images/addfolder.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
                                     </MenuItem>
                                 </Menu>
                                 <Separator/>
@@ -261,7 +273,7 @@
                                         <MenuItem.Icon>
                                             <Image Name="IconMenuAddFolder"  Height="20" Width="20" Source="/Images/addfolder.png"/>
                                         </MenuItem.Icon>
-                                        <MenuItem Header="_Directoties.." Name="Directories1" >
+                                        <MenuItem Header="_Directoties.." Name="Directories1" Click="AddSubFolderButton_Click">
                                             <MenuItem.Icon>
                                                 <Image Name="IconDirectories1" Height="20" Width="20" Source="/Images/addfolder.png"/>
                                             </MenuItem.Icon>

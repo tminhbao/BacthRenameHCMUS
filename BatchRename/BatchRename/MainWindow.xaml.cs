@@ -31,154 +31,16 @@ namespace BatchRename
         {
             InitializeComponent();            
         }
-
-        //Class Folder
-        public class FolderSelected : INotifyPropertyChanged
-        {
-
-            private string _oldname;
-
-            public string Oldname
-            {
-                get { return _oldname; }
-                set
-                {
-                    _oldname = value;
-                    OnFolderChanged("Oldname");
-                }
-            }
-
-            private string _foldername;
-            public string Foldername
-            {
-                get { return _foldername; }
-                set
-                {
-                    _foldername = value;
-                    OnFolderChanged("Foldername");
-                }
-            }
-
-            private string newfoldername;
-            public string NewFoldername
-            {
-                get { return newfoldername; }
-                set
-                {
-                    newfoldername = value;
-                    OnFolderChanged("NewFoldername");
-                }
-            }
-
-
-            private string pathfolder;
-            public string PathFolder
-            {
-                get { return pathfolder; }
-                set
-                {
-                    pathfolder = value;
-                    OnFolderChanged("PathFolder");
-                }
-            }
-
-            private string errorfolder;
-            public string ErrorFolder
-            {
-                get { return errorfolder; }
-                set
-                {
-                    errorfolder = value;
-                    OnFolderChanged("ErrorFolder");
-                }
-            }
-
-
-            private bool isgroovydir;
-            public bool IsGroovyDir
-            {
-                get { return isgroovydir; }
-                set
-                {
-                    isgroovydir = value;
-                    OnFolderChanged("IsGroovyDir");
-                }
-            }
-
-            public event PropertyChangedEventHandler PropertyChanged;
-
-            protected void OnFolderChanged(string property)
-            {
-                PropertyChangedEventHandler handler = PropertyChanged;
-                if (handler != null)
-                {
-                    handler(this, new PropertyChangedEventArgs(property));
-                }
-            }
-        }
-
-        //Class Method
-
-        public class Method : INotifyPropertyChanged
-        {
-
-            private Page page;
-            private string nameMethod;
-            private bool isCheckMethod;
-
-            public Page PageMethod
-            {
-                get { return page; }
-                set
-                {
-                    page = value;
-                    OnPropertyChanged("PageMethod");
-                }
-            }
-
-            public string NameMethod
-            {
-                get { return nameMethod; }
-                set
-                {
-                    nameMethod = value;
-                    OnPropertyChanged("NameMethod");
-                }
-
-            }
-
-            public bool IsCheckMethod
-            {
-                get { return isCheckMethod; }
-                set
-                {
-                    isCheckMethod = value;
-                    OnPropertyChanged("IsCheckMethod");
-                }
-            }
-
-
-            public event PropertyChangedEventHandler PropertyChanged;
-            protected void OnPropertyChanged(string property)
-            {
-                PropertyChangedEventHandler handler = PropertyChanged;
-                if (handler != null)
-                {
-                    handler(this, new PropertyChangedEventArgs(property));
-                }
-            }
-
-        } 
-
-        // Load được file lên UI
-        private void AddFileButtons_Click(object sender, RoutedEventArgs e)
+ 
+        // Chọn nhiều file
+        private void AddFileButton_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
             openFileDialog.Multiselect = true;
             openFileDialog.Filter = "All file (*.*)|*.*";
             if (openFileDialog.ShowDialog() == true)
             {
-                //đọc file vào danh sách
+                //Đọc file vào danh sách
                 foreach (string filename in openFileDialog.FileNames)
                 {
                     ListFileSelected.Items.Add(new FileSelected()
@@ -195,7 +57,36 @@ namespace BatchRename
             }
         }
 
-        // Load được Folder lên UI
+        // Chọn tất cả file trong 1 thư mục
+        private void AddDirectoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog browserDialog = new FolderBrowserDialog();
+            browserDialog.RootFolder = Environment.SpecialFolder.Desktop;
+            browserDialog.ShowNewFolderButton = false;
+            browserDialog.SelectedPath = System.AppDomain.CurrentDomain.BaseDirectory;
+            if (browserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string sPath = browserDialog.SelectedPath;
+                DirectoryInfo directoryInfo = new DirectoryInfo(sPath);
+                if (directoryInfo.Exists)
+                {
+                    foreach (FileInfo fileInfo in directoryInfo.GetFiles())
+                    {
+                        ListFileSelected.Items.Add(new FileSelected()
+                        {
+                            Filename = Path.GetFileName(fileInfo.Name),
+                            Newname = Path.GetFileNameWithoutExtension(fileInfo.Name),
+                            Oldname = Path.GetFileNameWithoutExtension(fileInfo.Name),
+                            Path = fileInfo.FullName,
+                            Error = " ",
+                            IsGroovy = true,
+                            Extension = Path.GetExtension(fileInfo.Name)
+                        });
+                    }
+                }
+            }
+        }
+        // Chọn được folder
         private void AddFolderButton_Click(object sender, RoutedEventArgs e)
         {
             FolderBrowserDialog browserDialog = new FolderBrowserDialog();
@@ -217,10 +108,33 @@ namespace BatchRename
                 });
             }
         }
-
-
-
-
+        private void AddSubFolderButton_Click(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog browserDialog = new FolderBrowserDialog();
+            browserDialog.RootFolder = Environment.SpecialFolder.Desktop;
+            browserDialog.ShowNewFolderButton = false;
+            browserDialog.SelectedPath = System.AppDomain.CurrentDomain.BaseDirectory;
+            if (browserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string sPath = browserDialog.SelectedPath;
+                DirectoryInfo directoryInfo = new DirectoryInfo(sPath);
+                if (directoryInfo.Exists)
+                {
+                    foreach (DirectoryInfo directory in directoryInfo.GetDirectories())
+                    {
+                        ListFolderSelected.Items.Add(new FolderSelected()
+                        {
+                            Foldername = directory.Name,
+                            NewFoldername = directory.Name,
+                            Oldname = directoryInfo.Name,
+                            PathFolder = directory.FullName,
+                            ErrorFolder = " ",
+                            IsGroovyDir = true
+                        });
+                    }
+                }
+            }
+        }
         // Button di chuyển file
         List<FileSelected> _listFileSelected = new List<FileSelected>();
         private void MoveFirstFileButton_Click(object sender, RoutedEventArgs e)
@@ -234,7 +148,6 @@ namespace BatchRename
                 ListFileSelected.SelectedItem = ListFileSelected.Items[0];
             }
         }
-
         private void MoveUpFileButton_Click(object sender, RoutedEventArgs e)
         {
             if (ListFileSelected.SelectedIndex > 0)
@@ -246,7 +159,6 @@ namespace BatchRename
                 ListFileSelected.SelectedItem = ListFileSelected.Items[index - 1];
             }
         }
-
         private void MoveDownFileButton_Click(object sender, RoutedEventArgs e)
         {
             if (ListFileSelected.SelectedIndex >= 0 && ListFileSelected.SelectedIndex < ListFileSelected.Items.Count - 1)
@@ -258,7 +170,6 @@ namespace BatchRename
                 ListFileSelected.SelectedItem = ListFileSelected.Items[index + 1];
             }
         }
-
         private void MoveBottomFileButton_Click(object sender, RoutedEventArgs e)
         {
             if (ListFileSelected.SelectedIndex >= 0 && ListFileSelected.SelectedIndex < ListFileSelected.Items.Count)
@@ -270,7 +181,6 @@ namespace BatchRename
                 ListFileSelected.SelectedItem = ListFileSelected.Items[ListFileSelected.Items.Count - 1];
             }
         }
-
         // Button di chuyển folder
         private void MoveFirstFolderButton_Click(object sender, RoutedEventArgs e)
         {
@@ -283,7 +193,6 @@ namespace BatchRename
                 ListFolderSelected.SelectedItem = ListFolderSelected.Items[0];
             }
         }
-
         private void MoveUpFolderButton_Click(object sender, RoutedEventArgs e)
         {
             if (ListFolderSelected.SelectedIndex > 0)
@@ -295,7 +204,6 @@ namespace BatchRename
                 ListFolderSelected.SelectedItem = ListFolderSelected.Items[index - 1];
             }
         }
-
         private void MoveDownFolderButton_Click(object sender, RoutedEventArgs e)
         {
             if (ListFolderSelected.SelectedIndex >= 0 && ListFolderSelected.SelectedIndex < ListFolderSelected.Items.Count - 1)
@@ -307,7 +215,6 @@ namespace BatchRename
                 ListFolderSelected.SelectedItem = ListFolderSelected.Items[index + 1];
             }
         }
-
         private void MoveBottomFolderButton_Click(object sender, RoutedEventArgs e)
         {
             if (ListFolderSelected.SelectedIndex >= 0 && ListFolderSelected.SelectedIndex < ListFolderSelected.Items.Count)
@@ -319,7 +226,6 @@ namespace BatchRename
                 ListFolderSelected.SelectedItem = ListFolderSelected.Items[ListFolderSelected.Items.Count - 1];
             }
         }
-
         // Button di chuyển method
         private void MoveFirstMethodButton_Click(object sender, RoutedEventArgs e)
         {
@@ -332,7 +238,6 @@ namespace BatchRename
                 ListViewMethod.SelectedItem = ListViewMethod.Items[0];
             }
         }
-
         private void MoveUpMethodButton_Click(object sender, RoutedEventArgs e)
         {
             if (ListViewMethod.SelectedIndex > 0)
@@ -344,7 +249,6 @@ namespace BatchRename
                 ListViewMethod.SelectedItem = ListViewMethod.Items[index - 1];
             }
         }
-
         private void MoveDownMethodButton_Click(object sender, RoutedEventArgs e)
         {
             if (ListViewMethod.SelectedIndex >= 0 && ListViewMethod.SelectedIndex < ListViewMethod.Items.Count - 1)
@@ -356,7 +260,6 @@ namespace BatchRename
                 ListViewMethod.SelectedItem = ListViewMethod.Items[index + 1];
             }
         }
-
         private void MoveBottomMethodButton_Click(object sender, RoutedEventArgs e)
         {
             if (ListViewMethod.SelectedIndex >= 0 && ListViewMethod.SelectedIndex < ListViewMethod.Items.Count)
@@ -368,12 +271,6 @@ namespace BatchRename
                 ListViewMethod.SelectedItem = ListViewMethod.Items[ListViewMethod.Items.Count - 1];
             }
         }
-
-
-
-
-
-
 
         //Hàm xử lý phương thức Replace
         public void ReplaceOperation(string from, string to)
@@ -439,5 +336,6 @@ namespace BatchRename
 
         }
 
+        
     }
 }
