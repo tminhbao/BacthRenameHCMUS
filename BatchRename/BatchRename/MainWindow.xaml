@@ -11,7 +11,7 @@
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
                 <!--Button refresh-->
-                <Button Name="Refresh" >
+                <Button Name="Refresh" Click="RefreshButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image  Name="IconRefresh" Source="/Images/refresh.png" Height="20" Width="20" RenderOptions.BitmapScalingMode="HighQuality"></Image>
                         <TextBlock Text="Refresh" Margin="6,0,0,0"></TextBlock>
@@ -26,7 +26,7 @@
                     </StackPanel>
                 </Button>
                 <!--Button Start Batch-->
-                <Button Name="StartBatch">
+                <Button Name="StartBatch" Click="StartBatchButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Name="IconBatch" Source="/Images/start.png" Height="20" Width="20" RenderOptions.BitmapScalingMode="HighQuality"></Image>
                         <TextBlock Text="Start Batch" Margin="5,0,0,0"></TextBlock>
@@ -41,7 +41,7 @@
                 <ToolBar>
                     <!--Button thêm phương thức-->
                     <Menu>
-                        <MenuItem Header="_Add Method" Name="MenuAddMethod" >
+                        <MenuItem Header="_Add Method" Name="MenuAddMethod">
                             <MenuItem.Icon>
                                 <Image Name="IconAddMethod" Source="/Images/add.png" Height="20" Width="20"  RenderOptions.BitmapScalingMode="HighQuality"></Image>
                             </MenuItem.Icon>
@@ -57,17 +57,16 @@
                     <Separator />
 
                     <!--Clear Button-->
-                    <!--<Button Name="IconLeftClear" >
-                        <Image Source="/Images/refresh.png" Height="20" Width="20" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    <!--<Button Name="IconLeftClear" Click="IconLeftClear_Click">
+                        <Image  Source="/Images/clear.png" Width="20" Height="20"></Image>
                     </Button>-->
-                    <Button Name="btn_Clear">
+                    <Button Name="btn_Clear" Click="ClearButton_Click">
                         <StackPanel Orientation="Horizontal">
                             <Image Name="IconRightClear" Source="/Images/clear.png" Height="20" Width="20" RenderOptions.BitmapScalingMode="HighQuality"></Image>
                             <TextBlock Text="Clear" Margin="5,0,0,0"></TextBlock>
                         </StackPanel>
                     </Button>
                     <Separator/>
-
 
                     <!--Nhóm button di chuyển phương thức-->
                     <Button x:Name="bnt_First" Click="MoveFirstMethodButton_Click">
@@ -88,21 +87,20 @@
             <ToolBarTray>
                 <ToolBar>
                     <!--Button thêm preset-->
-                    <Button Name="btn_AddPreset">
+                    <Button Name="btn_AddPreset" Click="AddPresetButton_Click">
                         <Image Name="IconAddPreset" Source="/Images/loadpreset.png" Height="20" Width="20" RenderOptions.BitmapScalingMode="HighQuality"></Image>
                     </Button>
 
                     <!--Button lưu preset-->
-                    <Button x:Name="btn_SavePreset" >
+                    <Button x:Name="btn_SavePreset" Click="SavePresetButton_Click">
                         <Image Name="IconSavePreset" Source="/Images/savepreset.png" Height="20" Width="20" RenderOptions.BitmapScalingMode="HighQuality"></Image>
                     </Button>
                     <Separator></Separator>
 
                     <!--Combobox chọn preset-->
                     <Label Content="Preset: "></Label>
-                    <!--<ComboBox Name="ComboboxPreset" Width="150" SelectionChanged="ComboboxPreset_SelectionChanged" >-->
-                    <ComboBox>
-                        <ComboBoxItem>
+                    <ComboBox Name="ComboboxPreset" Width="150" SelectionChanged="ComboboxPreset_SelectionChanged" >
+                        <ComboBoxItem  >
                         </ComboBoxItem>
                     </ComboBox>
                 </ToolBar>
@@ -151,7 +149,7 @@
                                                         </CheckBox>
                                                     </Grid>
                                                     <Grid Grid.Column="2" >
-                                                        <Button x:Name="RemoveMethod" >
+                                                        <Button x:Name="RemoveMethod" Click="RemoveMethodButton_Click">
                                                             <Image Source="/Images/clear.png" Stretch="Fill" Height="20" Width="20" />
                                                         </Button>
                                                     </Grid>
@@ -241,8 +239,7 @@
                                 <GridView>
                                     <GridViewColumn>
                                         <GridViewColumn.Header>
-                                            <!--<CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>-->
-                                            <CheckBox/>
+                                            <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
                                         </GridViewColumn.Header>
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
