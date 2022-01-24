@@ -1011,6 +1011,33 @@ namespace BatchRename
                 });
             }
         }
-        
+
+        // Kéo thả folder vào ứng dụng
+
+        private void ListFolderSelected_DragEnter(object sender, System.Windows.DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(System.Windows.DataFormats.FileDrop))
+                e.Effects = System.Windows.DragDropEffects.Copy;
+        }
+
+        private void ListFolderSelected_Drop(object sender, System.Windows.DragEventArgs e)
+        {
+            var files = (string[])e.Data.GetData(System.Windows.DataFormats.FileDrop);
+            foreach (string file in files)
+            {
+                ListFileSelected.Items.Add(new FileSelected()
+                {
+                    Filename = Path.GetFileName(file),
+                    Newname = Path.GetFileNameWithoutExtension(file),
+                    Oldname = Path.GetFileNameWithoutExtension(file),
+                    Path = file,
+                    Error = " ",
+                    IsGroovy = true,
+                    Extension = Path.GetExtension(file)
+                });
+            }
+        }
+
+
     }
 }
