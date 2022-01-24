@@ -52,5 +52,10 @@ namespace BatchRename
         {
             RadioButtonChanged?.Invoke(0);
         }
+
+        private void ButtonPascalCase_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButtonChanged?.Invoke(5);
+        }
     }
 }

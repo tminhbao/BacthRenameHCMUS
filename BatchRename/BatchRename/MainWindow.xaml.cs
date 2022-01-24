@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,6 +21,8 @@ using System.Windows.Shapes;
 using Batch_Rename;
 using Microsoft.Win32;
 using Path = System.IO.Path;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 
 namespace BatchRename
@@ -33,7 +37,7 @@ namespace BatchRename
             InitializeComponent();
             ReadPreset();
         }
- 
+
         // Chọn nhiều file
         private void AddFileButton_Click(object sender, RoutedEventArgs e)
         {
@@ -175,7 +179,7 @@ namespace BatchRename
         private void MoveBottomFileButton_Click(object sender, RoutedEventArgs e)
         {
             if (ListFileSelected.SelectedIndex >= 0 && ListFileSelected.SelectedIndex < ListFileSelected.Items.Count)
-            { 
+            {
                 var item = (FileSelected)ListFileSelected.SelectedItem;
                 var index = ListFileSelected.SelectedIndex;
                 ListFileSelected.Items.RemoveAt(index);
@@ -795,7 +799,6 @@ namespace BatchRename
                     string temp = fileSelected.Newname;
                     switch (number)
                     {
-
                         case 1:
                             fileSelected.Newname = temp.ToLower();
                             break;
@@ -808,7 +811,27 @@ namespace BatchRename
                         case 4:
                             fileSelected.Newname = temp.Substring(0, 1).ToUpper() + temp.Substring(1).ToLower();
                             break;
-
+                        case 5:
+                            Regex invalidCharsRgx = new Regex("[^_a-zA-Z0-9]");
+                            Regex whiteSpace = new Regex(@"(?<=\s)");
+                            Regex startsWithLowerCaseChar = new Regex("^[a-z]");
+                            Regex firstCharFollowedByUpperCasesOnly = new Regex("(?<=[A-Z])[A-Z0-9]+$");
+                            Regex lowerCaseNextToNumber = new Regex("(?<=[0-9])[a-z]");
+                            Regex upperCaseInside = new Regex("(?<=[A-Z])[A-Z]+?((?=[A-Z][a-z])|(?=[0-9]))");
+                            // replace white spaces with undescore, then replace all invalid chars with empty string
+                            var pascalCase = invalidCharsRgx.Replace(whiteSpace.Replace(temp, "_"), string.Empty)
+                            // split by underscores
+                            .Split(new char[] { '_' }, StringSplitOptions.RemoveEmptyEntries)
+                            // set first letter to uppercase
+                            .Select(w => startsWithLowerCaseChar.Replace(w, m => m.Value.ToUpper()))
+                            // replace second and all following upper case letters to lower if there is no next lower (ABC -> Abc)
+                            .Select(w => firstCharFollowedByUpperCasesOnly.Replace(w, m => m.Value.ToLower()))
+                            // set upper case the first lower case following a number (Ab9cd -> Ab9Cd)
+                            .Select(w => lowerCaseNextToNumber.Replace(w, m => m.Value.ToUpper()))
+                            // lower second and next upper case letters except the last if it follows by any lower (ABcDEf -> AbcDef)
+                            .Select(w => upperCaseInside.Replace(w, m => m.Value.ToLower()));
+                            fileSelected.Newname = string.Concat(pascalCase);
+                            break;
                         default:
                             fileSelected.Newname = temp;
                             break;
@@ -974,7 +997,7 @@ namespace BatchRename
             newNameFrame.textBlockMouseDown += NewNameOperation;
             ListViewMethod.Items.Add(new Method() { PageMethod = newNameFrame, NameMethod = "New name", IsCheckMethod = true });
 
-        }     
+        }
 
         //Hàm xử lý phương thức Remove
         public void RemoveOperation(string startIndex, string count)

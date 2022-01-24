@@ -14,6 +14,7 @@
         <RadioButton x:Name="ButtonUpperCase" Content="Set upper case" Margin="5" Checked="ButtonUpperCase_Checked"/>
         <RadioButton x:Name="ButtonLowerCaseFirstLetter"  Content="Set lower case first letter"  Margin="5" Checked="ButtonLowerCaseFirstLetter_Checked"/>
         <RadioButton x:Name="ButtonUpperCaseFirstLetter"  Content="Set upper case first letter"  Margin="5" Checked="ButtonUpperCaseFirstLetter_Checked"/>
+        <RadioButton x:Name="ButtonPascalCase"  Content="Set pascal case"  Margin="5" Checked="ButtonPascalCase_Checked"/>
 
         <Button x:Name="ReturnOldName" Content="Back" Background="LightGreen" Margin="6" Click="ReturnOldName_Click"/>
     </StackPanel>
