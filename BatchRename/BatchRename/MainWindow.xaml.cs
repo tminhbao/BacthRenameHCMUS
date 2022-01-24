@@ -996,16 +996,6 @@ namespace BatchRename
 
         private void ListFileSelected_Drop(object sender, System.Windows.DragEventArgs e)
         {
-            //string[] directoryName = (string[])e.Data.GetData(System.Windows.DataFormats.FileDrop);
-            ////get all files inside folder            
-            //string[] files = Directory.GetFiles(directoryName[0]);
-
-            //ListFileSelected.Items.Clear();
-
-            //foreach (string file in files)
-            //{
-            //   ListFileSelected.Items.Add(file);
-            //}
             var files = (string[])e.Data.GetData(System.Windows.DataFormats.FileDrop);
             foreach (string file in files)
             {
@@ -1020,6 +1010,7 @@ namespace BatchRename
                     Extension = Path.GetExtension(file)
                 });
             }
-        }   
+        }
+        
     }
 }
