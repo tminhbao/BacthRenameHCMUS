@@ -800,10 +800,10 @@ namespace BatchRename
                     switch (number)
                     {
                         case 1:
-                            fileSelected.Newname = temp.ToLower();
+                            fileSelected.Newname = temp.Replace(" ", "").ToLower();
                             break;
                         case 2:
-                            fileSelected.Newname = temp.ToUpper();
+                            fileSelected.Newname = temp.Replace(" ", "").ToUpper();
                             break;
                         case 3:
                             fileSelected.Newname = temp.Substring(0, 1).ToLower() + temp.Substring(1).ToUpper();
