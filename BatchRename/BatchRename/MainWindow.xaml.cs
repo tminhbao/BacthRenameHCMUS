@@ -285,7 +285,6 @@ namespace BatchRename
             {
                 if (fileSelected.IsGroovy)
                 {
-
                     fileSelected.Newname = fileSelected.Oldname;
                     string temp = fileSelected.Newname;
                     if (from.Length > 0)
@@ -314,11 +313,9 @@ namespace BatchRename
                     {
                         folderSelected.NewFoldername = temp;
                     }
-
                 }
             }
         }
-
         //Hàm xử lý sự kiện khi nhấn vào Replace trong AddMethod
         private void Replace_Click(object sender, RoutedEventArgs e)
         {
@@ -336,10 +333,7 @@ namespace BatchRename
             replaceFrame.TextBoxChanged += ReplaceOperation;
             ListViewMethod.Items.Add(new Method() { PageMethod = replaceFrame, NameMethod = "Replace", IsCheckMethod = true });
         }
-
-
         // Hàm xử lí phương thức Add Prefix
-
         public void AddPrefixOperation(string prefix)
         {
             foreach (FileSelected fileSelected in ListFileSelected.Items)
@@ -393,19 +387,17 @@ namespace BatchRename
             }
 
             addPrefixFrame.TextBoxChanged += AddPrefixOperation;
-            ListViewMethod.Items.Add(new Method() { PageMethod = addPrefixFrame, NameMethod = "AddPrefix", IsCheckMethod = true });
+            ListViewMethod.Items.Add(new Method() { PageMethod = addPrefixFrame, NameMethod = "Add Prefix", IsCheckMethod = true });
 
         }
 
         // Hàm xử lí phương thức Add Suffix
-
         public void AddSuffixOperation(string suffix)
         {
             foreach (FileSelected fileSelected in ListFileSelected.Items)
             {
                 if (fileSelected.IsGroovy)
                 {
-
                     fileSelected.Newname = fileSelected.Oldname;
                     string temp = fileSelected.Newname;
                     if (suffix.Length > 0)
@@ -452,17 +444,15 @@ namespace BatchRename
             }
 
             addSuffixFrame.TextBoxChanged += AddSuffixOperation;
-            ListViewMethod.Items.Add(new Method() { PageMethod = addSuffixFrame, NameMethod = "AddSuffix", IsCheckMethod = true });
+            ListViewMethod.Items.Add(new Method() { PageMethod = addSuffixFrame, NameMethod = "Add Suffix", IsCheckMethod = true });
 
         }
-
 
         //Hàm đọc các tập phương thức ra combobox
         private void ReadPreset()
         {
             //string relativePath = "..\\..\\..\\Batch Methods\\";
             string relativePath = $"{ AppDomain.CurrentDomain.BaseDirectory}\\";
-
             string path = Path.GetFullPath(relativePath);
             string[] files = Directory.GetFiles(path, "*.txt");
             foreach (string file in files)
@@ -497,7 +487,7 @@ namespace BatchRename
             if (name != null)
             {
                 //string relativePath = "..\\..\\..\\Batch Methods\\" + name + ".txt";
-                string relativePath = $"{ AppDomain.CurrentDomain.BaseDirectory}preset\\";
+                string relativePath = $"{ AppDomain.CurrentDomain.BaseDirectory}\\";
                 string path = Path.GetFullPath(relativePath);
                 ReadFile(path);
             }
@@ -510,7 +500,6 @@ namespace BatchRename
             var saveFileDialog = new Microsoft.Win32.SaveFileDialog();
             saveFileDialog.InitialDirectory = path;
             saveFileDialog.Filter = "Preset (*.txt)|*.txt";
-
             if (saveFileDialog.ShowDialog() == true)
             {
 
@@ -538,7 +527,7 @@ namespace BatchRename
             }
         }
 
-        //Hàm đọc các phương thức ra từ một tệp đã lưu trong thư mục Batch Methods
+        //Hàm đọc các phương thức ra từ một tệp đã lưu
         private void ReadFile(string namefile)
         {
             FileStream file = new FileStream(namefile, FileMode.Open, FileAccess.Read);
@@ -588,9 +577,21 @@ namespace BatchRename
                                     break;
                                 case "Extension":
                                     method.NameMethod = "Extension";
-                                    var page6 = new ExtensionFrame();
-                                    page6.DataChanged += ExtensionOperation;
+                                    var page5 = new ExtensionFrame();
+                                    page5.DataChanged += ExtensionOperation;
+                                    method.PageMethod = page5;
+                                    break;
+                                case "Add Prefix":
+                                    method.NameMethod = "Add Prefix";
+                                    var page6 = new AddPrefixFrame();
+                                    page6.TextBoxChanged += AddPrefixOperation;
                                     method.PageMethod = page6;
+                                    break;
+                                case "Add Suffix":
+                                    method.NameMethod = "Add Suffix";
+                                    var page7 = new AddSuffixFrame();
+                                    page7.TextBoxChanged += AddSuffixOperation;
+                                    method.PageMethod = page7;
                                     break;
                                 default:
                                     break;
@@ -797,7 +798,7 @@ namespace BatchRename
                 {
                     fileSelected.Newname = fileSelected.Oldname;
                     string temp = fileSelected.Newname;
-                    switch (number)
+                    switch (number) 
                     {
                         case 1:
                             fileSelected.Newname = temp.Replace(" ", "").ToLower();
