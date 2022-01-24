@@ -7,12 +7,36 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ExtensionFrame.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="NewCaseFrame.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="NewNameFrame.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="RemoveFrame.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ReplaceFrame.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ExtensionFrame.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="NewCaseFrame.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="NewNameFrame.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RemoveFrame.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ReplaceFrame.xaml">

@@ -22,8 +22,6 @@
                      BorderBrush="LightBlue" BorderThickness="2" 
                      TextChanged="NewContent_TextChanged"/>
         </StackPanel>
-
-
     </StackPanel>
 
 </Page>

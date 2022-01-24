@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BatchRename"
         mc:Ignorable="d"
-        Title="Batch Rename" Height="500" Width="1000">
+        Title="Batch Rename" Height="500" Width="1000" Loaded="Window_Loaded">
     <DockPanel>
         <!--Thanh công cụ -->
         <ToolBarTray DockPanel.Dock="Top">
@@ -45,13 +45,13 @@
                             <MenuItem.Icon>
                                 <Image Name="IconAddMethod" Source="/Images/add.png" Height="20" Width="20"  RenderOptions.BitmapScalingMode="HighQuality"></Image>
                             </MenuItem.Icon>
-                            <MenuItem Header="_New Name" Name="NewName" />
-                            <MenuItem Header="_New Case" Name="NewCase" />
-                            <MenuItem Header="_Move" Name="Move" />
-                            <MenuItem Header="_Remove" Name="Remove" />
+                            <MenuItem Header="_New Name" Name="NewName" Click="NewName_Click"/>
+                            <MenuItem Header="_New Case" Name="NewCase" Click="NewCase_Click" />
+                            <MenuItem Header="_Remove" Name="Remove" Click="Remove_Click"/>
                             <MenuItem Header="_Replace" Name="Replace" Click="Replace_Click" />
-                            <MenuItem Header="_Trim" Name="Trim" />
-                            <MenuItem Header="_Extension" Name="Extension" />
+                            <MenuItem Header="_Extension" Name="Extension" Click="Extension_Click" />
+                            <!--<MenuItem Header="_AddPrefix" Name="AddPrefix" Click="AddPrefix_Click" />
+                            <MenuItem Header="_AddSuffix" Name="AddSuffix" Click="AddSuffix_Click" />-->
                         </MenuItem>
                     </Menu>
                     <Separator />
@@ -232,7 +232,7 @@
                         </ToolBarTray>
 
                         <!--ListView chứa các file cần thao tác-->
-                        <ListView x:Name="ListFileSelected" SelectionMode="Single"
+                        <ListView x:Name="ListFileSelected" SelectionMode="Single" AllowDrop="True" DragEnter="ListFileSelected_DragEnter" Drop="ListFileSelected_Drop"
                                   Height="480" ScrollViewer.VerticalScrollBarVisibility="Visible"  Background="AntiqueWhite" FontWeight="Bold" >
                             <ListView.View>
 

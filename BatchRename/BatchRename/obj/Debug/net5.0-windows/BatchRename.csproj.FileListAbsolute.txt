@@ -24,3 +24,11 @@ D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\Batc
 D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\BatchRename.csproj.Fody.CopyLocal.cache
 D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\ReplaceFrame.g.cs
 D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\ReplaceFrame.baml
+D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\ExtensionFrame.g.cs
+D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\NewCaseFrame.g.cs
+D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\NewNameFrame.g.cs
+D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\RemoveFrame.g.cs
+D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\ExtensionFrame.baml
+D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\NewCaseFrame.baml
+D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\NewNameFrame.baml
+D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\RemoveFrame.baml
