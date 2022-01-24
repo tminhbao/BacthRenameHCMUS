@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BatchRename"
         mc:Ignorable="d"
-        Title="Batch Rename" Height="500" Width="1000" Loaded="Window_Loaded">
+        Title="Batch Rename" Height="500" Width="1000" >
     <DockPanel>
         <!--Thanh công cụ -->
         <ToolBarTray DockPanel.Dock="Top">
@@ -50,8 +50,8 @@
                             <MenuItem Header="_Remove" Name="Remove" Click="Remove_Click"/>
                             <MenuItem Header="_Replace" Name="Replace" Click="Replace_Click" />
                             <MenuItem Header="_Extension" Name="Extension" Click="Extension_Click" />
-                            <!--<MenuItem Header="_AddPrefix" Name="AddPrefix" Click="AddPrefix_Click" />
-                            <MenuItem Header="_AddSuffix" Name="AddSuffix" Click="AddSuffix_Click" />-->
+                            <MenuItem Header="_AddPrefix" Name="AddPrefix" Click="AddPrefix_Click" />
+                            <!--<MenuItem Header="_AddSuffix" Name="AddSuffix" Click="AddSuffix_Click" />-->
                         </MenuItem>
                     </Menu>
                     <Separator />
@@ -302,7 +302,7 @@
                                 </Button>
                             </ToolBar>
                         </ToolBarTray>
-                        <ListView x:Name="ListFolderSelected" SelectionMode="Single"
+                        <ListView x:Name="ListFolderSelected" SelectionMode="Single" AllowDrop="True" DragEnter="ListFolderSelected_DragEnter" Drop="ListFolderSelected_Drop"
                                   Height="480" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="LightBlue" FontWeight="Bold">
                             <!-- <ListView.ItemContainerStyle>
                                 <Style TargetType="{x:Type ListViewItem}">

@@ -1,0 +1,21 @@
+﻿<Page x:Class="BatchRename.AddPrefixFrame"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BatchRename"
+      mc:Ignorable="d" 
+      d:DesignHeight="100" d:DesignWidth="400"
+      Title="AddPrefixFrame"
+      Background="White">
+
+    <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Label Content="Add Prefix" Width="90" FontWeight="DemiBold" ></Label>
+            <TextBox Name="AddPrefix" Text="{Binding Prefix}" Width="200" 
+                         BorderBrush="LightBlue" BorderThickness="2"
+                         TextChanged="AddPrefix_TextChanged"
+                         />
+        </StackPanel>
+    </StackPanel>
+</Page>

@@ -22,11 +22,9 @@ namespace Batch_Rename
     {
         public delegate void ReplaceDelegate(string newOldContent, string newNewContent);
         public event ReplaceDelegate TextBoxChanged = null;
-
         public ReplaceFrame()
         {
             InitializeComponent();
-
         }
         private void OldContent_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -38,14 +36,10 @@ namespace Batch_Rename
             FireContentChangedEvent();
         }
 
-
         private void FireContentChangedEvent()
         {
-
             TextBoxChanged?.Invoke(OldContent.Text, NewContent.Text);
         }
-
-
 
     }
 }

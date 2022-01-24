@@ -286,15 +286,12 @@ namespace BatchRename
                     string temp = fileSelected.Newname;
                     if (from.Length > 0)
                     {
-
                         fileSelected.Newname = temp.Replace(from, to);
-
                     }
                     else
                     {
                         fileSelected.Newname = temp;
                     }
-
                 }
             }
 
@@ -302,7 +299,6 @@ namespace BatchRename
             {
                 if (folderSelected.IsGroovyDir)
                 {
-
                     folderSelected.NewFoldername = folderSelected.Oldname;
                     string temp = folderSelected.NewFoldername;
                     if (from.Length > 0)
@@ -336,6 +332,68 @@ namespace BatchRename
             replaceFrame.TextBoxChanged += ReplaceOperation;
             ListViewMethod.Items.Add(new Method() { PageMethod = replaceFrame, NameMethod = "Replace", IsCheckMethod = true });
         }
+
+
+        // Hàm xử lí phương thức Add Prefix
+
+        public void AddPrefixOperation(string prefix)
+        {
+            foreach (FileSelected fileSelected in ListFileSelected.Items)
+            {
+                if (fileSelected.IsGroovy)
+                {
+
+                    fileSelected.Newname = fileSelected.Oldname;
+                    string temp = fileSelected.Newname;
+                    if (prefix.Length > 0)
+                    {
+                        fileSelected.Newname = prefix + temp;
+                    }
+                    else
+                    {
+                        fileSelected.Newname = temp;
+                    }
+                }
+            }
+
+            foreach (FolderSelected folderSelected in ListFolderSelected.Items)
+            {
+                if (folderSelected.IsGroovyDir)
+                {
+                    folderSelected.NewFoldername = folderSelected.Oldname;
+                    string temp = folderSelected.NewFoldername;
+                    if (prefix.Length > 0)
+                    {
+
+                        folderSelected.NewFoldername = prefix + temp;
+                    }
+                    else
+                    {
+                        folderSelected.NewFoldername = temp;
+                    }
+
+                }
+            }
+        }
+        private void AddPrefix_Click(object sender, RoutedEventArgs e)
+        {
+            AddPrefixFrame addPrefixFrame = new AddPrefixFrame();
+            foreach (FileSelected fileSelected in ListFileSelected.Items)
+            {
+                fileSelected.Oldname = fileSelected.Newname;
+            }
+
+            foreach (FolderSelected folderSelected in ListFolderSelected.Items)
+            {
+                folderSelected.Oldname = folderSelected.NewFoldername;
+            }
+
+            addPrefixFrame.TextBoxChanged += AddPrefixOperation;
+            ListViewMethod.Items.Add(new Method() { PageMethod = addPrefixFrame, NameMethod = "AddPrefix", IsCheckMethod = true });
+
+        }
+
+
 
         //Hàm đọc các tập phương thức ra combobox
         private void ReadPreset()
@@ -376,18 +434,17 @@ namespace BatchRename
             string name = ComboboxPreset.SelectedItem as string;
             if (name != null)
             {
-                string relativePath = "..\\..\\..\\Batch Methods\\" + name + ".txt";
+                //string relativePath = "..\\..\\..\\Batch Methods\\" + name + ".txt";
+                string relativePath = $"{ AppDomain.CurrentDomain.BaseDirectory}preset\\";
                 string path = Path.GetFullPath(relativePath);
                 ReadFile(path);
             }
         }
         private void SavePresets()
         {
-
             //string relativePath = "..\\..\\..\\Batch Methods\\"; //lưu tệp vào thư mục Batch Methods
             string relativePath = $"{ AppDomain.CurrentDomain.BaseDirectory}preset\\";
             string path = Path.GetFullPath(relativePath);
-
             var saveFileDialog = new Microsoft.Win32.SaveFileDialog();
             saveFileDialog.InitialDirectory = path;
             saveFileDialog.Filter = "Preset (*.txt)|*.txt";
@@ -666,11 +723,6 @@ namespace BatchRename
                 }
             }
         }
-
-
-
-
-
 
 
         //Hàm xử lý phương thức NewCase
@@ -979,15 +1031,7 @@ namespace BatchRename
 
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            ListFileSelected.AllowDrop = true;
-            
-        }
-
-
         // Kéo thả file vào trong ứng dụng
-
         private void ListFileSelected_DragEnter(object sender, System.Windows.DragEventArgs e)
         {
             if (e.Data.GetDataPresent(System.Windows.DataFormats.FileDrop))
