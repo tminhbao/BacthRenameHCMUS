@@ -34,3 +34,5 @@ D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\NewN
 D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\RemoveFrame.baml
 D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\AddPrefixFrame.g.cs
 D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\AddPrefixFrame.baml
+D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\AddSuffixFrame.g.cs
+D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\obj\Debug\net5.0-windows\AddSuffixFrame.baml

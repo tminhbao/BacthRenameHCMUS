@@ -393,6 +393,64 @@ namespace BatchRename
 
         }
 
+        // Hàm xử lí phương thức Add Suffix
+
+        public void AddSuffixOperation(string suffix)
+        {
+            foreach (FileSelected fileSelected in ListFileSelected.Items)
+            {
+                if (fileSelected.IsGroovy)
+                {
+
+                    fileSelected.Newname = fileSelected.Oldname;
+                    string temp = fileSelected.Newname;
+                    if (suffix.Length > 0)
+                    {
+                        fileSelected.Newname = temp + suffix;
+                    }
+                    else
+                    {
+                        fileSelected.Newname = temp;
+                    }
+                }
+            }
+
+            foreach (FolderSelected folderSelected in ListFolderSelected.Items)
+            {
+                if (folderSelected.IsGroovyDir)
+                {
+                    folderSelected.NewFoldername = folderSelected.Oldname;
+                    string temp = folderSelected.NewFoldername;
+                    if (suffix.Length > 0)
+                    {
+
+                        folderSelected.NewFoldername = temp + suffix;
+                    }
+                    else
+                    {
+                        folderSelected.NewFoldername = temp;
+                    }
+
+                }
+            }
+        }
+        private void AddSuffix_Click(object sender, RoutedEventArgs e)
+        {
+            AddSuffixFrame addSuffixFrame = new AddSuffixFrame();
+            foreach (FileSelected fileSelected in ListFileSelected.Items)
+            {
+                fileSelected.Oldname = fileSelected.Newname;
+            }
+
+            foreach (FolderSelected folderSelected in ListFolderSelected.Items)
+            {
+                folderSelected.Oldname = folderSelected.NewFoldername;
+            }
+
+            addSuffixFrame.TextBoxChanged += AddSuffixOperation;
+            ListViewMethod.Items.Add(new Method() { PageMethod = addSuffixFrame, NameMethod = "AddSuffix", IsCheckMethod = true });
+
+        }
 
 
         //Hàm đọc các tập phương thức ra combobox

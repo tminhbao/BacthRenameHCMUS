@@ -10,6 +10,9 @@
     <Compile Update="AddPrefixFrame.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="AddSuffixFrame.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ExtensionFrame.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,6 +31,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="AddPrefixFrame.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AddSuffixFrame.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ExtensionFrame.xaml">

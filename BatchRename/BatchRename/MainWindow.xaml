@@ -51,7 +51,7 @@
                             <MenuItem Header="_Replace" Name="Replace" Click="Replace_Click" />
                             <MenuItem Header="_Extension" Name="Extension" Click="Extension_Click" />
                             <MenuItem Header="_AddPrefix" Name="AddPrefix" Click="AddPrefix_Click" />
-                            <!--<MenuItem Header="_AddSuffix" Name="AddSuffix" Click="AddSuffix_Click" />-->
+                            <MenuItem Header="_AddSuffix" Name="AddSuffix" Click="AddSuffix_Click" />
                         </MenuItem>
                     </Menu>
                     <Separator />

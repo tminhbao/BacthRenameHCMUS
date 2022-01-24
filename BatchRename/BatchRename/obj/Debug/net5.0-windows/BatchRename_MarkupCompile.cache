@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 D:\GITHUB\BacthRenameHCMUS\BatchRename\BatchRename\App.xaml
-71869175707
+8974326145
 
-12547562050
+13-1954306452
 203-2085518317
-AddPrefixFrame.xaml;ExtensionFrame.xaml;MainWindow.xaml;NewCaseFrame.xaml;NewNameFrame.xaml;RemoveFrame.xaml;ReplaceFrame.xaml;
+AddPrefixFrame.xaml;AddSuffixFrame.xaml;ExtensionFrame.xaml;MainWindow.xaml;NewCaseFrame.xaml;NewNameFrame.xaml;RemoveFrame.xaml;ReplaceFrame.xaml;
 
 False
 
