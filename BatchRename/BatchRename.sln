@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BatchRename", "BatchRename\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfLibrary1", "IContract\WpfLibrary1\WpfLibrary1.csproj", "{CE7AD4C1-BE61-4453-AD0F-C32F3A5216D3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddPrefixOperation", "AddPrefixOperation\AddPrefixOperation.csproj", "{C7EAF2DE-A4F8-4AF9-A4B7-93EEFD498A66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CE7AD4C1-BE61-4453-AD0F-C32F3A5216D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE7AD4C1-BE61-4453-AD0F-C32F3A5216D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE7AD4C1-BE61-4453-AD0F-C32F3A5216D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7EAF2DE-A4F8-4AF9-A4B7-93EEFD498A66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7EAF2DE-A4F8-4AF9-A4B7-93EEFD498A66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7EAF2DE-A4F8-4AF9-A4B7-93EEFD498A66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7EAF2DE-A4F8-4AF9-A4B7-93EEFD498A66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

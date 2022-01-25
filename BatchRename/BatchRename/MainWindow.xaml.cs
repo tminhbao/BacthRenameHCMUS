@@ -340,7 +340,6 @@ namespace BatchRename
             {
                 if (fileSelected.IsGroovy)
                 {
-
                     fileSelected.Newname = fileSelected.Oldname;
                     string temp = fileSelected.Newname;
                     if (prefix.Length > 0)
@@ -390,6 +389,7 @@ namespace BatchRename
             ListViewMethod.Items.Add(new Method() { PageMethod = addPrefixFrame, NameMethod = "Add Prefix", IsCheckMethod = true });
 
         }
+
 
         // Hàm xử lí phương thức Add Suffix
         public void AddSuffixOperation(string suffix)
@@ -888,7 +888,6 @@ namespace BatchRename
             ListViewMethod.Items.Add(new Method() { PageMethod = newCaseFrame, NameMethod = "New case", IsCheckMethod = true });
 
         }
-
 
         //hàm chuẩn hóa tên 
         public string NormalizeFullName(string origin)
