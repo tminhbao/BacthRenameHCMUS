@@ -787,7 +787,6 @@ namespace BatchRename
             }
         }
 
-
         //Hàm xử lý phương thức NewCase
         public void NewCaseOperation(int number)
         {
@@ -921,7 +920,6 @@ namespace BatchRename
             return result;
         }
 
-
         //Hàm xử lý phương thức NewName
         public void NewNameOperation(int number)
         {
@@ -1031,7 +1029,6 @@ namespace BatchRename
 
             }
 
-
             foreach (FolderSelected folderSelected in ListFolderSelected.Items)
             {
                 if (folderSelected.IsGroovyDir)
@@ -1059,7 +1056,6 @@ namespace BatchRename
             }
         }
 
-
         //Hàm xử lý sự kiện click vào Remove trong MenuItem AddMethod       
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
@@ -1079,7 +1075,6 @@ namespace BatchRename
             ListViewMethod.Items.Add(new Method() { PageMethod = removeFrame, NameMethod = "Remove", IsCheckMethod = true });
 
         }
-
 
         //Hàm xử lý phương thức đổi tên đuôi mở rộng
         public void ExtensionOperation(string convert, string to)
@@ -1112,14 +1107,12 @@ namespace BatchRename
             ListViewMethod.Items.Add(new Method() { PageMethod = extensionFrame, NameMethod = "Extension", IsCheckMethod = true });
 
         }
-
         // Kéo thả file vào trong ứng dụng
         private void ListFileSelected_DragEnter(object sender, System.Windows.DragEventArgs e)
         {
             if (e.Data.GetDataPresent(System.Windows.DataFormats.FileDrop))
                 e.Effects = System.Windows.DragDropEffects.Copy;
         }
-
         private void ListFileSelected_Drop(object sender, System.Windows.DragEventArgs e)
         {
             var files = (string[])e.Data.GetData(System.Windows.DataFormats.FileDrop);
@@ -1139,13 +1132,11 @@ namespace BatchRename
         }
 
         // Kéo thả folder vào ứng dụng
-
         private void ListFolderSelected_DragEnter(object sender, System.Windows.DragEventArgs e)
         {
             if (e.Data.GetDataPresent(System.Windows.DataFormats.FileDrop))
                 e.Effects = System.Windows.DragDropEffects.Copy;
         }
-
         private void ListFolderSelected_Drop(object sender, System.Windows.DragEventArgs e)
         {
             var files = (string[])e.Data.GetData(System.Windows.DataFormats.FileDrop);
@@ -1163,7 +1154,6 @@ namespace BatchRename
                 });
             }
         }
-
 
     }
 }

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatchRename", "BatchRename\BatchRename.csproj", "{510109C2-4226-42BA-BBE3-4BC904C06ABA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BatchRename", "BatchRename\BatchRename.csproj", "{510109C2-4226-42BA-BBE3-4BC904C06ABA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfLibrary1", "IContract\WpfLibrary1\WpfLibrary1.csproj", "{CE7AD4C1-BE61-4453-AD0F-C32F3A5216D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{510109C2-4226-42BA-BBE3-4BC904C06ABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{510109C2-4226-42BA-BBE3-4BC904C06ABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{510109C2-4226-42BA-BBE3-4BC904C06ABA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE7AD4C1-BE61-4453-AD0F-C32F3A5216D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE7AD4C1-BE61-4453-AD0F-C32F3A5216D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE7AD4C1-BE61-4453-AD0F-C32F3A5216D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE7AD4C1-BE61-4453-AD0F-C32F3A5216D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
